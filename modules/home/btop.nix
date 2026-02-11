@@ -1,15 +1,15 @@
 { pkgs, ... }:
 {
-  programs.btop = {
+  programs.bottom = {
     enable = true;
-
     settings = {
-      color_theme = "TTY";
-      theme_background = false;
-      update_ms = 500;
-      rounded_corners = false;
+      flags = {
+        avg_cpu = true;
+        temperature_type = "c";
+      };
     };
   };
 
   home.packages = with pkgs; [ nvtopPackages.intel ];
 }
+

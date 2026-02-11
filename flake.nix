@@ -34,7 +34,7 @@
   outputs =
     { nixpkgs, self, ... }@inputs:
     let
-      username = "frostphoenix";
+      username = "anarky";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;

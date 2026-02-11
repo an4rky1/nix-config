@@ -5,8 +5,8 @@
 
     settings = {
       user = {
-        name = "Frost-Phoenix";
-        email = "67cyril6767@gmail.com";
+        name = "anarky";
+        email = "4ekist1234@gmail.com";
       };
 
       init.defaultBranch = "main";
@@ -16,13 +16,9 @@
       color.ui = true;
 
       url = {
-        "git@github.com:".insteadOf = [
-          "gh:"
-          "https://github.com/"
-        ];
-        "git@github.com:frost-phoenix/".insteadOf = "fp:";
+        # Оставь это, ТОЛЬКО если используешь SSH-ключи
+        "git@github.com:".insteadOf = "gh:";
       };
-
       core.excludesFile = "/home/${username}/.config/git/.gitignore";
     };
   };

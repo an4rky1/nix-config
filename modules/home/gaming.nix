@@ -2,14 +2,13 @@
 {
   home.packages = with pkgs; [
     ## Utils
-    # gamemode
-    # gamescope
+    gamemode
+    gamescope
     # winetricks
     # inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-ge
 
-    ## Minecraft
-    # prismlauncher
-
+        
+    ## X11 libs (нужно для Project Zomboid / Java / XWayland)
     ## Cli games
     _2048
     _2048-in-terminal

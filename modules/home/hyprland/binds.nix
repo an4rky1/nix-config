@@ -9,7 +9,9 @@
     bind = [
       # show keybinds list
       "$mod, F1, exec, show-keybinds"
-
+      "ALT, Tab, workspace, previous"
+      
+      ", code:66, exec, hyprctl dispatch sendshortcut , code:49, "
       # keybindings
       "$mod, Return, exec, ghostty --gtk-single-instance=true"
       "ALT, Return, exec, [float; size 1111 700] ghostty"

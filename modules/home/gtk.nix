@@ -10,6 +10,7 @@
     noto-fonts-color-emoji
     fantasque-sans-mono
     maple-mono-custom
+    monaspace
   ];
 
   gtk = {

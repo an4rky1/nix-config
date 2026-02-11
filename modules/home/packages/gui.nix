@@ -11,6 +11,19 @@
     video-trimmer
     vlc
 
+    ## any
+    telegram-desktop
+    qbittorrent
+    qutebrowser
+    steam
+
+    ## dev
+    lazydocker
+    posting
+    ducker
+    harlequin
+    resterm
+
     ## Office
     libreoffice
     gnome-calculator
