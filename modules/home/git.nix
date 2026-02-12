@@ -6,7 +6,7 @@
     settings = {
       user = {
         name = "anarky";
-        email = "4ekist1234@gmail.com";
+        email = "anarky13@proton.me";
       };
 
       init.defaultBranch = "main";
