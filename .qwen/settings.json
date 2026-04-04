@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(zellij *)",
+      "Bash(nix *)",
+      "Bash(hyprctl *)",
+      "Bash(journalctl *)",
+      "Bash(which *)",
+      "Bash(hyprpicker *)",
+      "Bash(screenshot *)",
+      "Bash(grimblast *)",
+      "Bash(timeout *)",
+      "Bash(nix-search *)",
+      "Bash(home-manager *)",
+      "Bash(nixos-rebuild *)",
+      "Bash(ghostty *)",
+      "Bash(ls *)",
+      "Bash(tr *)"
+    ]
+  },
+  "$version": 3
+}

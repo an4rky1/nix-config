@@ -12,7 +12,7 @@
 
       background = [
         {
-          path = "${../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}";
+          path = "${../../../wallpapers/otherWallpaper/gruvbox/gruvbox_spac.jpg}";
 
           color = "rgba(29, 32, 33, 255)";
           blur_passes = 2;

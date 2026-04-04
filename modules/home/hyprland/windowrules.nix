@@ -25,15 +25,23 @@
 
       "match:title ^(Picture-in-Picture)$, pin on"
       "match:title ^(Picture-in-Picture)$, float on"
+      "match:title ^(nvim)$, workspace 8"
+      "match:title ^(zellij)$, workspace 8"
+      "match:title ^(btm)$, workspace 7"
+      "match:title ^(superfile)$, workspace 9"
+      "match:title ^(Zen Browser Private Browsing)$, workspace 5"
 
+      "match:class ^(obsidian)$, workspace 6"
       "match:class ^(zen-beta)$, workspace 1"
       "match:class ^(Gimp-2.10)$, workspace 4"
       "match:class ^(Aseprite)$, workspace 4"
       "match:class ^(Audacious)$, workspace 5"
       "match:class ^(Spotify)$, workspace 5"
       "match:class ^(com.obsproject.Studio)$, workspace 8"
+      "match:class ^(org.telegram.desktop)$, workspace 10"
       "match:class ^(discord)$, workspace 10"
       "match:class ^(WebCord)$, workspace 10"
+      "match:class ^(nemo)$, workspace 9"
       "match:class ^(vesktop)$, workspace 10"
 
       "match:class ^(mpv)$, idle_inhibit focus"
@@ -49,6 +57,8 @@
       "rounding 0, match:float 0, match:workspace w[tv1]"
       "border_size 0, match:float 0, match:workspace f[1]"
       "rounding 0, match:float 0, match:workspace f[1]"
+
+      # Ghostty with zellij/superfile
     ];
 
     layerrule = [

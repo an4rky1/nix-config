@@ -28,5 +28,7 @@
     pnpm # пнпм
     typescript # тайпскрипт
     bun # bun
+    cargo 
+    go
   ];
 }

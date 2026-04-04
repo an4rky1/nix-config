@@ -10,7 +10,7 @@
       # show keybinds list
       "$mod, F1, exec, show-keybinds"
       "ALT, Tab, workspace, previous"
-      
+
       ", code:66, exec, hyprctl dispatch sendshortcut , code:49, "
       # keybindings
       "$mod, Return, exec, ghostty --gtk-single-instance=true"
@@ -29,23 +29,23 @@
       "$mod SHIFT, Escape, exec, power-menu"
       "$mod, P, pseudo,"
       "$mod, X, togglesplit,"
-      "$mod, Z, exec, ghostty -e zellij"
-      "$mod, T, exec, toggle-oppacity"
-      "$mod, E, exec, nemo"
-      "ALT, E, exec, hyprctl dispatch exec '[float; size 1111 700] nemo'"
+      "$mod, Z, exec, run-or-focus 'zellij' 'ghostty --title=zellij -e zellij'"
+      "$mod, R, exec, run-or-focus 'superfile' 'ghostty --title=superfile -e superfile'"
+      "$mod, E, exec, run-or-focus 'nemo' 'nemo'"
+      "$mod, L, exec, run-or-focus 'Zen' 'zen-beta'"
+      "$mod, O, exec, run-or-focus 'Obsidian' 'obsidian'"
       "$mod SHIFT, B, exec, toggle-waybar"
       "$mod, C ,exec, hyprpicker -a"
       "$mod, W,exec, wallpaper-picker"
       "$mod SHIFT, W,exec, hyprctl dispatch exec '[float; size 925 615] waypaper'"
       "$mod, N, exec, swaync-client -t -sw"
-      "$mod, R, exec, ghostty -e superfile"
       "CTRL SHIFT, Escape, exec, hyprctl dispatch exec '[workspace 9] missioncenter'"
       "$mod, equal, exec, woomer"
-      # "$mod SHIFT, W, exec, vm-start"
+      "$mod, J, exec, run-or-focus 'bottom' 'ghostty --title=btm -e btm'"
 
       # screenshot
       ",Print, exec, screenshot --copy"
-      "$mod, Print, exec, screenshot --save"
+      "$mod, S, exec, screenshot --save"
       "$mod SHIFT, Print, exec, screenshot --swappy"
 
       # OCR
