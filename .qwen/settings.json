@@ -16,7 +16,8 @@
       "Bash(nixos-rebuild *)",
       "Bash(ghostty *)",
       "Bash(ls *)",
-      "Bash(tr *)"
+      "Bash(tr *)",
+      "Bash(git commit *)"
     ]
   },
   "$version": 3
