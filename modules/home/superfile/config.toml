@@ -47,7 +47,7 @@ border_middle_right = '┤'
 
 # ========== Plugins ========== #
 
-metadata = false # needs exiftool
+metadata = false            # needs exiftool
 enable_md5_checksum = false
 zoxide_support = true
 

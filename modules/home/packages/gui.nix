@@ -23,10 +23,12 @@
     ducker
     harlequin
     resterm
-
+    lazysql
+    opencode
     ## Office
     libreoffice
     gnome-calculator
+
 
     ## Utility
     dconf-editor

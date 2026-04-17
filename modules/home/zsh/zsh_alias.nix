@@ -23,6 +23,7 @@
       man = "batman";
       nx = "npx -y nx"; # Добавляем сюда
       ni = "npx -y @antfu/ni"; # Заодно добавил ni, раз он мелькал в ошибках
+      kilo = "npx @kilocode/cli@latest";
 
       l = "eza --icons -a --group-directories-first -1 --no-user --long"; # EZA_ICON_SPACING=2
       tree = "eza --icons --tree --group-directories-first";

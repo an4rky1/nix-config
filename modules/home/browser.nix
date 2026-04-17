@@ -4,15 +4,17 @@
 
   programs.zen-browser.enable = true;
 
+  # Устанавливаем переменную окружения для терминальных программ
+  home.sessionVariables = {
+    BROWSER = "zen";
+  };
+
   xdg.mimeApps =
     let
-      value =
-        let
-          system = pkgs.stdenv.hostPlatform.system;
-          zen-browser = inputs.zen-browser.packages.${system}.beta;
-        in
-        zen-browser.meta.desktopFileName;
+      # Имя .desktop файла для Zen Browser
+      value = "zen.desktop"; 
 
+      # Список типов файлов, которые должен открывать Zen
       associations = builtins.listToAttrs (
         map (name: { inherit name value; }) [
           "application/x-extension-shtml"
@@ -33,7 +35,12 @@
       );
     in
     {
-      associations.added = associations;
+      enable = true; # Важно: заставляет Home Manager применить эти настройки
+      
+      # Устанавливаем Zen как приложение по умолчанию для списка выше
       defaultApplications = associations;
+      
+      # Добавляем в список "открыть с помощью" (необязательно, но полезно)
+      associations.added = associations;
     };
 }

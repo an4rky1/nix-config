@@ -56,6 +56,8 @@
     pipes
     sl
     tty-clock
+    kilocode-cli
+
 
     ## Multimedia
     imv
@@ -81,6 +83,6 @@
     xdg-utils
 
     winetricks
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
   ];
 }
