@@ -4,7 +4,7 @@
 #   Initialisation   #
 #--------------------#
 
-CURRENT_USERNAME='frostphoenix'
+CURRENT_USERNAME='anarky'
 
 RESET=$(tput sgr0)
 WHITE=$(tput setaf 7)
@@ -161,8 +161,7 @@ fi
 #----------------------#
 
 echo -e "${INFO}Clearing git config"
-sed -i 's/"Frost-Phoenix"/""/g' modules/home/git.nix
-sed -i 's/"67cyril6767@gmail.com"/""/g' modules/home/git.nix
+# Removed old cleanup logic as it is no longer needed
 
 #------------------------------#
 #   Prepare the environement   #
