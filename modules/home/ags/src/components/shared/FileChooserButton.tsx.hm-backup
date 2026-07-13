@@ -1,0 +1,11 @@
+import { Gtk, astalify, ConstructProps } from 'astal/gtk4';
+
+/**
+ * FileChooserButton component that extends Gtk.FileChooserButton.
+ *
+ * @class FileChooserButton
+ * @extends {astalify(Gtk.FileChooserButton)}
+ */
+export const FileChooserButton = astalify(Gtk.FileChooserButton);
+
+export default FileChooserButton;

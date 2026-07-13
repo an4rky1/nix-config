@@ -2,10 +2,10 @@
 
 command="$@"
 
-command_window_address=$(hyprctl activewindow -j | jq -r '.address')
+command_window_id=$(niri msg focused-window 2>/dev/null | jq -r '.id')
 
 focus() {
-    hyprctl dispatch focuswindow "address:$command_window_address" > /dev/null
+    niri msg action focus-window "$command_window_id"
 }
 
 start_time=$(date +%s)
@@ -17,9 +17,9 @@ end_time=$(date +%s)
 duration=$(($end_time - $start_time))
 duration_formatted="$((duration / 60))m $(printf "%02d" $((duration % 60)))s"
 
-active_window_address=$(hyprctl activewindow -j | jq -r '.address')
+active_window_id=$(niri msg focused-window 2>/dev/null | jq -r '.id')
 
-if [ "$active_window_address" != "$command_window_address" ]; then
+if [ "$active_window_id" != "$command_window_id" ]; then
     if [ $exit_status -ne 0 ]; then
         action=$(
             notify-send -u critical \

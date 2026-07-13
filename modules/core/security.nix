@@ -4,9 +4,7 @@
     rtkit.enable = true;
     sudo.enable = true;
 
-    pam.services = {
-      swaylock = { };
-      hyprlock = { };
-    };
+    pam.services = { };
+
   };
 }

@@ -1,18 +1,14 @@
-{ pkgs, ... }:
-{
-  programs.hyprland = {
-    enable = true;
-  };
+{ pkgs, lib, ... }: {
+  programs.niri.enable = true;
+
+  services.displayManager.defaultSession = "niri";
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     config = {
       common.default = [ "gtk" ];
-      hyprland.default = [
-        "gtk"
-        "hyprland"
-      ];
+      niri.default = lib.mkDefault [ "gtk" ];
     };
 
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

@@ -1,0 +1,9 @@
+import { Gtk, astalify } from 'astal/gtk4';
+
+/**
+ * MenuItem component - GTK4 doesn't have Gtk.MenuItem.
+ * Using Button as a simple clickable item.
+ */
+export const MenuItem = astalify(Gtk.Button);
+
+export default MenuItem;

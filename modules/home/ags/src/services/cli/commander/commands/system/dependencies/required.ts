@@ -1,0 +1,1 @@
+/nix/store/8nmqc7cysknmzkzgdsawm6skjarrd313-home-manager-files/.config/ags/src/services/cli/commander/commands/system/dependencies/required.ts

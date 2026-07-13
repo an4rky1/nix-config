@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# $1 — substring to match in window title
-# $2 — command to run if not found
-
 if [ $# -ne 2 ]; then
     echo "Usage: $(basename "$0") <pattern> <command>" >&2
     exit 1
@@ -11,10 +8,10 @@ fi
 pattern="$1"
 command="$2"
 
-# Check if any window title matches the pattern
-if hyprctl clients | grep -q "$pattern"; then
-    # Use Hyprland's built-in title: matching for focuswindow
-    hyprctl dispatch focuswindow "title:$pattern"
+id=$(niri msg windows 2>/dev/null | jq -r ".[] | select(.title | test(\"$pattern\")) | .id" | head -1)
+
+if [ -n "$id" ]; then
+    niri msg action focus-window "$id"
 else
-    hyprctl dispatch exec "$command"
+    niri msg action spawn-sh "$command"
 fi

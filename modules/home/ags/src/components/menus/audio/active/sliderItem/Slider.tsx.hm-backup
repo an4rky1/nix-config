@@ -1,0 +1,58 @@
+import { bind } from 'astal';
+import { Gdk, Gtk } from 'astal/gtk4';
+import AstalWp from 'gi://AstalWp?version=0.1';
+import options from 'src/configuration';
+import { isScrollUp, isScrollDown } from 'src/lib/events/mouse';
+import { capitalizeFirstLetter } from 'src/lib/string/formatters';
+
+const { raiseMaximumVolume } = options.menus.volume;
+
+export const Slider = ({ device, type }: SliderProps): JSX.Element => {
+    return (
+        <box vertical>
+            <label
+                className={`menu-active ${type}`}
+                halign={Gtk.Align.START}
+                truncate
+                hexpand
+                wrap
+                label={bind(device, 'description').as((description) =>
+                    capitalizeFirstLetter(description ?? `Unknown ${type} Device`),
+                )}
+            />
+            <slider
+                value={bind(device, 'volume')}
+                className={`menu-active-slider menu-slider ${type}`}
+                drawValue={false}
+                hexpand
+                min={0}
+                max={type === 'playback' ? bind(raiseMaximumVolume).as((raise) => (raise ? 1.5 : 1)) : 1}
+                setup={(self) => {
+                    self.connect('value-changed', () => {
+                        if (self.has_focus) {
+                            device.set_volume(self.value);
+                            device.set_mute(false);
+                        }
+                    });
+                    const scroll = new Gtk.EventControllerScroll();
+                    scroll.connect('scroll', (_, dx, dy) => {
+                        if (dy > 0) {
+                            const newVolume = device.volume - 0.05;
+                            device.set_volume(newVolume);
+                        } else if (dy < 0) {
+                            const newVolume = device.volume + 0.05;
+                            const minVolume = raiseMaximumVolume.get() ? 1.5 : 1;
+                            device.set_volume(Math.min(newVolume, minVolume));
+                        }
+                    });
+                    self.add_controller(scroll);
+                }}
+            />
+        </box>
+    );
+};
+
+interface SliderProps {
+    device: AstalWp.Endpoint;
+    type: 'playback' | 'input';
+}

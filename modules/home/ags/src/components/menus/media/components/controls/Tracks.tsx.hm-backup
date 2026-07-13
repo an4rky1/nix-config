@@ -1,0 +1,62 @@
+import icons from 'src/lib/icons/icons';
+import { Astal, Gtk, Widget } from 'astal/gtk4';
+import { bind } from 'astal';
+import { canGoNext, activePlayer, canGoPrevious } from 'src/services/media';
+
+export const NextTrack = (): JSX.Element => {
+    const className = bind(canGoNext).as((skippable) => {
+        const nextStatus = skippable ? 'enabled' : 'disabled';
+
+        return `media-indicator-control-button next ${nextStatus}`;
+    });
+
+    const onClick = (): void => {
+        const currentPlayer = activePlayer.get();
+
+        if (currentPlayer && currentPlayer.can_go_next) {
+            currentPlayer.next();
+        }
+    };
+
+    return (
+        <box className={'media-indicator-control next'}>
+            <button
+                className={className}
+                halign={Gtk.Align.CENTER}
+                hasTooltip
+                tooltipText={'Next Track'}
+                onClicked={onClick}
+            >
+                <icon icon={icons.mpris.next} />
+            </button>
+        </box>
+    );
+};
+
+export const PreviousTrack = (): JSX.Element => {
+    const className = bind(canGoPrevious).as((rewindable) => {
+        const prevStatus = rewindable ? 'enabled' : 'disabled';
+
+        return `media-indicator-control-button prev ${prevStatus}`;
+    });
+
+    const onClick = (): void => {
+        const currentPlayer = activePlayer.get();
+
+        if (currentPlayer && currentPlayer.can_go_previous) {
+            currentPlayer.previous();
+        }
+    };
+
+    return (
+        <button
+            className={className}
+            halign={Gtk.Align.CENTER}
+            hasTooltip
+            tooltipText={'Previous Track'}
+            onClicked={onClick}
+        >
+            <icon icon={icons.mpris.prev} />
+        </button>
+    );
+};

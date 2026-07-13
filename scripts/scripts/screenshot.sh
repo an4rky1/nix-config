@@ -4,18 +4,16 @@ dir="$HOME/Pictures/Screenshots"
 time=$(date +'%Y_%m_%d_at_%Hh%Mm%Ss')
 file="${dir}/Screenshot_${time}.png"
 
-export GRIMBLAST_HIDE_CURSOR=0
-
 copy() {
-    grimblast --freeze copy area
+    grim -g "$(slurp)" - | wl-copy
 }
 
 save() {
-    grimblast --freeze save area "$file" && notify-send "Screenshot" "Saved to $file"
+    grim -g "$(slurp)" "$file" && notify-send "Screenshot" "Saved to $file"
 }
 
 swappy_() {
-    grimblast --freeze save area "$file" && notify-send "Screenshot" "Saved to $file" && swappy -f "$file"
+    grim -g "$(slurp)" "$file" && notify-send "Screenshot" "Saved to $file" && swappy -f "$file"
 }
 
 if [[ ! -d "$dir" ]]; then

@@ -1,0 +1,11 @@
+import { Gtk, astalify, ConstructProps } from 'astal/gtk4';
+
+/**
+ * FontButton component that extends Gtk.FontButton.
+ *
+ * @class FontButton
+ * @extends {astalify(Gtk.FontButton)}
+ */
+export const FontButton = astalify(Gtk.FontButton);
+
+export default FontButton;

@@ -1,0 +1,11 @@
+import { Gtk, astalify, ConstructProps } from 'astal/gtk4';
+
+/**
+ * Calendar component that extends Gtk.Calendar.
+ *
+ * @class Calendar
+ * @extends {astalify(Gtk.Calendar)}
+ */
+export const Calendar = astalify(Gtk.Calendar);
+
+export default Calendar;

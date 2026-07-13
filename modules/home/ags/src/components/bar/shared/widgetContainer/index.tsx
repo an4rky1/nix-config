@@ -1,0 +1,1 @@
+/nix/store/8nmqc7cysknmzkzgdsawm6skjarrd313-home-manager-files/.config/ags/src/components/bar/shared/widgetContainer/index.tsx
