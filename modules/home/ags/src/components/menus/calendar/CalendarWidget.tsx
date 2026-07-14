@@ -14,8 +14,6 @@ export const CalendarWidget = (): JSX.Element => {
                     className={'calendar-menu-widget'}
                     halign={Gtk.Align.FILL}
                     valign={Gtk.Align.FILL}
-                    showDetails={false}
-                    expand
                     showDayNames
                     showHeading
                 />

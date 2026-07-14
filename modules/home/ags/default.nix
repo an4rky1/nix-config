@@ -236,6 +236,7 @@ in
     astalInputs.notifd
     gtksourceview5
     libgtop
+    swww
   ];
 
   xdg.configFile."ags" = {

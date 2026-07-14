@@ -1,4 +1,4 @@
-import { Gtk } from 'astal/gtk4';
+import { Gdk, Gtk } from 'astal/gtk4';
 
 /**
  * Looks up an icon by name and size
@@ -9,7 +9,7 @@ import { Gtk } from 'astal/gtk4';
 export function lookUpIcon(name?: string, size = 16): Gtk.IconInfo | null {
     if (name === undefined) return null;
 
-    return Gtk.IconTheme.get_default().lookup_icon(name, size, Gtk.IconLookupFlags.USE_BUILTIN);
+    return Gtk.IconTheme.get_for_display(Gdk.Display.get_default()).lookup_icon(name, null, size, 1, Gtk.TextDirection.LTR, Gtk.IconLookupFlags.USE_BUILTIN);
 }
 
 /**

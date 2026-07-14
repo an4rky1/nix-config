@@ -1,5 +1,5 @@
 import { DropdownMenuList } from '../../../../../lib/options/types';
-import { App, Gtk } from 'astal/gtk4';
+import { App, GLib, Gtk } from 'astal/gtk4';
 import { calculateMenuPosition } from './locationHandler';
 
 /**
@@ -30,8 +30,8 @@ export const handleRealization = async (name: DropdownMenuList): Promise<void> =
 
         appWindow?.set_visible(true);
 
-        while (Gtk.events_pending()) {
-            Gtk.main_iteration();
+        while (GLib.main_context_default().pending()) {
+            GLib.main_context_default().iteration(true);
         }
 
         appWindow?.set_visible(false);

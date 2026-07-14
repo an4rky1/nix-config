@@ -57,7 +57,7 @@ const MenuEntry = ({ item, child }: MenuEntryProps): JSX.Element => {
 
     return (
         <button
-            cursor={Gdk.Cursor.new_from_name('pointer')}
+            cursor={Gdk.Cursor.new_from_name('pointer', null)}
             onClicked={(self, event) => {
                 if (isPrimaryClick(event)) {
                     item.activate(0, 0);

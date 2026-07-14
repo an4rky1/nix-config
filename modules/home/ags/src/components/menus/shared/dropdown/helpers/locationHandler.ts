@@ -205,8 +205,8 @@ export const calculateMenuPosition = async (
             positionCoordinates[0],
         );
 
-        dropdownEventBox.set_margin_left(leftMargin);
-        dropdownEventBox.set_margin_right(rightMargin);
+        dropdownEventBox.set_margin_start(leftMargin);
+        dropdownEventBox.set_margin_end(rightMargin);
 
         setVerticalPosition(dropdownEventBox, finalHeight, dropdownHeight);
     } catch (caughtError) {

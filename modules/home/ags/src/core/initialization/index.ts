@@ -56,7 +56,7 @@ export class InitializationService {
      */
     private static async _initializeStartupScripts(): Promise<void> {
         try {
-            execAsync(`python3 ${SRC_DIR}/scripts/bluetooth.py`);
+            await execAsync(`python3 ${SRC_DIR}/scripts/bluetooth.py`);
         } catch (error) {
             console.error('Failed to initialize startup scripts:', error);
         }

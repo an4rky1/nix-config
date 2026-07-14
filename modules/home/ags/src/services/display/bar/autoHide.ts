@@ -96,7 +96,7 @@ export class BarAutoHideService {
         }
 
         const window = App.get_window(barName);
-        if (window && !window.get_window()?.is_destroyed()) {
+        if (window && window.get_surface() != null) {
             try {
                 window.set_visible(isVisible);
             } catch (error) {

@@ -44,16 +44,19 @@ export const NotificationCard = ({
                         notification.dismiss();
                     }
                 });
-            }}
-            onHover={() => {
-                if (actionBox !== null && showActions === true) {
-                    actionBox.revealChild = true;
-                }
-            }}
-            onHoverLost={() => {
-                if (actionBox !== null && showActions === true) {
-                    actionBox.revealChild = false;
-                }
+
+                const motion = Gtk.EventControllerMotion.new();
+                motion.connect('enter', () => {
+                    if (actionBox !== null && showActions === true) {
+                        actionBox.revealChild = true;
+                    }
+                });
+                motion.connect('leave', () => {
+                    if (actionBox !== null && showActions === true) {
+                        actionBox.revealChild = false;
+                    }
+                });
+                self.add_controller(motion);
             }}
         >
             <box className={'notification-card'} {...props} hexpand valign={Gtk.Align.START}>
