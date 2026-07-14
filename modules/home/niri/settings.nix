@@ -25,11 +25,18 @@
 
       focus-ring = {
         enable = false;
+        width = 0;
+        active = {
+          color = "#00000000";
+        };
+        inactive = {
+          color = "#00000000";
+        };
       };
 
       border = {
         enable = true;
-        width = 2;
+        width = 1;
         active = {
           color = "#98971A";
         };
