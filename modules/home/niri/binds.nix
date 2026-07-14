@@ -14,12 +14,7 @@
       "--fullscreen"
     ];
     "Mod+B".action.spawn = [ "zen-beta" ];
-    "Mod+D".action.spawn = [
-      "noctalia"
-      "msg"
-      "launcher"
-      "toggle"
-    ];
+    "Mod+D".action."spawn-sh" = "noctalia msg panel-toggle launcher";
     "Mod+Q".action."close-window" = { };
     "Mod+F".action."maximize-column" = { };
     "Mod+Shift+F".action."fullscreen-window" = { };
