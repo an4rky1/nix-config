@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     __GL_GSYNC_ALLOWED = 0;
@@ -23,7 +24,7 @@
     XDG_SESSION_DESKTOP = "niri";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
-    GTK_THEME = "Colloid-Green-Dark-Gruvbox";
+    GTK_THEME = "Gruvbox-Dark";
     GRIMBLAST_HIDE_CURSOR = 0;
   };
 

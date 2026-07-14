@@ -40,15 +40,5 @@
         "--initial-window=false"
       ];
     }
-
-    {
-      argv = [
-        "ags"
-        "run"
-        "${config.xdg.configFile.ags.target}/app.ts"
-        "--gtk"
-        "4"
-      ];
-    }
   ];
 }

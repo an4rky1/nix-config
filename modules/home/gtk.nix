@@ -20,16 +20,8 @@
       size = 12;
     };
     theme = {
-      name = "Colloid-Green-Dark-Gruvbox";
-      package = pkgs.colloid-gtk-theme.override {
-        colorVariants = [ "dark" ];
-        themeVariants = [ "green" ];
-        tweaks = [
-          "gruvbox"
-          "rimless"
-          "float"
-        ];
-      };
+      name = "Gruvbox-Dark";
+      package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
       name = "Papirus-Dark";

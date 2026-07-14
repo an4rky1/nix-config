@@ -31,16 +31,6 @@
     "Mod+R".action."spawn-sh" = "run-or-focus 'nemo' 'nemo'";
     "Mod+Ctrl+Z".action."spawn-sh" = "run-or-focus 'Zen' 'zen-beta'";
     "Mod+O".action."spawn-sh" = "run-or-focus 'Obsidian' 'obsidian'";
-    "Mod+D".action.spawn = [
-      "ags"
-      "request"
-      "launcher"
-    ];
-    "Mod+Escape".action.spawn = [
-      "ags"
-      "request"
-      "powermenu"
-    ];
     "Mod+C".action.spawn = [
       "hyprpicker"
       "-a"
@@ -157,12 +147,5 @@
 
     "Mod+F11".action."spawn-sh" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 100%";
     "Mod+F12".action."spawn-sh" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-
-    "Mod+T".action.spawn = [
-      "ags"
-      "request"
-      "theme"
-      "toggle"
-    ];
   };
 }

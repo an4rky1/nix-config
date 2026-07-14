@@ -15,7 +15,6 @@
     ./git.nix # version control
     ./gnome.nix # gnome apps
     ./gtk.nix # gtk theme
-    ./ags # desktop shell
     ./niri # window manager
     ./kitty.nix # terminal
     ./lazygit.nix
