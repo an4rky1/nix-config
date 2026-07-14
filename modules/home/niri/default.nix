@@ -8,5 +8,6 @@
     ./windowrules.nix
     ./exec-once.nix
     ./variables.nix
+    ./workspaces.nix
   ];
 }
