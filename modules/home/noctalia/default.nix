@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    inputs.noctalia.homeManagerModules.noctalia
+    inputs.noctalia.homeModules.default
     ./settings.nix
     ./bar.nix
     ./dock.nix
