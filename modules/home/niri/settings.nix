@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.niri.settings = {
     input = {
       keyboard = {
@@ -25,17 +26,34 @@
       focus-ring = {
         enable = true;
         width = 2;
-        active = { color = "#98971A"; };
-        inactive = { color = "#00000000"; };
+        active = {
+          color = "#98971A";
+        };
+        inactive = {
+          color = "#00000000";
+        };
       };
 
-      border.enable = false;
+      border = {
+        enable = true;
+        active = {
+          color = "#98971A";
+        };
+        inactive = {
+          color = "#444444";
+        };
+      };
+
+      border-radius = 12;
 
       shadow = {
         enable = true;
         softness = 20;
         spread = 0;
-        offset = { x = 0; y = 2; };
+        offset = {
+          x = 0;
+          y = 2;
+        };
         color = "#00000055";
       };
 
