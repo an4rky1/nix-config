@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/title/SongName.tsx
+import { Gtk } from 'astal/gtk4';
+import { bind } from 'astal';
+import { mediaTitle } from '../../../../../services/media';
+
+export const SongName = (): JSX.Element => {
+    return (
+        <box className={'media-indicator-current-song-name'} halign={Gtk.Align.CENTER}>
+            <label
+                className={'media-indicator-current-song-name-label'}
+                label={bind(mediaTitle)}
+                maxWidthChars={31}
+                truncate
+                wrap
+            />
+        </box>
+    );
+};

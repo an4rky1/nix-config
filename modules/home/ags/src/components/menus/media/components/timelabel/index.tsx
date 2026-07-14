@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/timelabel/index.tsx
+import { bind } from 'astal';
+import options from '../../../../../configuration';
+import { timeStamp } from '../../../../../services/media';
+
+const { displayTime } = options.menus.media;
+
+export const MediaTimeStamp = (): JSX.Element => {
+    if (!displayTime.get()) {
+        return <box />;
+    }
+
+    return (
+        <box className="media-indicator-current-time-label" hexpand>
+            <label className="time-label" label={bind(timeStamp)} hexpand />
+        </box>
+    );
+};

@@ -1,1 +1,16 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/menus/power/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    lowBatteryNotification: opt(false),
+    lowBatteryThreshold: opt(20),
+    lowBatteryNotificationTitle: opt('Warning: Low battery'),
+    lowBatteryNotificationText: opt(
+        'Your battery is running low ($POWER_LEVEL %).\n\nPlease plug in your charger.',
+    ),
+    showLabel: opt(true),
+    confirmation: opt(true),
+    sleep: opt('systemctl suspend'),
+    reboot: opt('systemctl reboot'),
+    logout: opt('hyprctl dispatch exit'),
+    shutdown: opt('systemctl poweroff'),
+};

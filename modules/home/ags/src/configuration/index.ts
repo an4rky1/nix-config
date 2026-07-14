@@ -1,1 +1,10 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/index.ts
+import { mkOptions } from '../lib/options';
+import theme from './modules/theme';
+import config from './modules/config';
+
+const options = mkOptions({
+    theme: theme,
+    ...config,
+});
+
+export default options;

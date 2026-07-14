@@ -1,1 +1,20 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/calendar/weather/icon/index.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import WeatherService from '../../../../../services/weather';
+
+const weatherService = WeatherService.getInstance();
+
+export const TodayIcon = (): JSX.Element => {
+    return (
+        <box
+            className={'calendar-menu-weather today icon container'}
+            halign={Gtk.Align.START}
+            valign={Gtk.Align.CENTER}
+        >
+            <label
+                className={'calendar-menu-weather today icon txt-icon'}
+                label={bind(weatherService.statusIcon)}
+            />
+        </box>
+    );
+};

@@ -1,1 +1,7 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/services/system/uptime/index.ts
+import { Variable } from 'astal';
+
+export const uptime = Variable(0).poll(
+    60_00,
+    'cat /proc/uptime',
+    (line): number => Number.parseInt(line.split('.')[0]) / 60,
+);

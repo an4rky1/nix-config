@@ -1,1 +1,33 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/workspaces/index.ts
+import {
+    ApplicationIcons,
+    WorkspaceIcons,
+    WorkspaceIconsColored,
+} from '../../../../../components/bar/modules/workspaces/types';
+import { opt } from '../../../../../lib/options';
+import { ActiveWsIndicator } from '../../../../../lib/options/types';
+
+export default {
+    show_icons: opt(false),
+    showAllActive: opt(true),
+    ignored: opt(''),
+    show_numbered: opt(false),
+    showWsIcons: opt(false),
+    showApplicationIcons: opt(false),
+    applicationIconOncePerWorkspace: opt(true),
+    applicationIconMap: opt<ApplicationIcons>({}),
+    applicationIconFallback: opt('󰣆'),
+    applicationIconEmptyWorkspace: opt(''),
+    numbered_active_indicator: opt<ActiveWsIndicator>('underline'),
+    icons: {
+        available: opt(''),
+        active: opt(''),
+        occupied: opt(''),
+    },
+    workspaceIconMap: opt<WorkspaceIcons | WorkspaceIconsColored>({}),
+    workspaces: opt(5),
+    spacing: opt(1),
+    monitorSpecific: opt(true),
+    workspaceMask: opt(false),
+    reverse_scroll: opt(false),
+    scroll_speed: opt(5),
+};

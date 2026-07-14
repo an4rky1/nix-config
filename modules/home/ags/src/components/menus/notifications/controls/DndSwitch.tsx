@@ -1,1 +1,20 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/notifications/controls/DndSwitch.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import AstalNotifd from 'gi://AstalNotifd?version=0.1';
+
+const notifdService = AstalNotifd.get_default();
+
+export const DndSwitch = (): JSX.Element => {
+    return (
+        <switch
+            className={'menu-switch notifications'}
+            valign={Gtk.Align.CENTER}
+            active={bind(notifdService, 'dontDisturb').as((dontDisturb) => !dontDisturb)}
+            setup={(self) => {
+                self.connect('notify::active', () => {
+                    notifdService.set_dont_disturb(!self.active);
+                });
+            }}
+        />
+    );
+};

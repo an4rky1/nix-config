@@ -1,1 +1,34 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/dashboard/directories/index.tsx
+import { Gtk } from 'astal/gtk4';
+import { LeftSection, RightSection } from './Sections';
+import { LeftLink1, LeftLink2, LeftLink3, RightLink1, RightLink2, RightLink3 } from './DirectoryLinks';
+import { JSXElement } from '../../../../core/types';
+
+export const Directories = ({ isEnabled }: DirectoriesProps): JSXElement => {
+    if (!isEnabled) {
+        return null;
+    }
+
+    return (
+        <box
+            className={'dashboard-card directories-container'}
+            valign={Gtk.Align.FILL}
+            halign={Gtk.Align.FILL}
+            expand
+        >
+            <LeftSection>
+                <LeftLink1 />
+                <LeftLink2 />
+                <LeftLink3 />
+            </LeftSection>
+            <RightSection>
+                <RightLink1 />
+                <RightLink2 />
+                <RightLink3 />
+            </RightSection>
+        </box>
+    );
+};
+
+interface DirectoriesProps {
+    isEnabled: boolean;
+}

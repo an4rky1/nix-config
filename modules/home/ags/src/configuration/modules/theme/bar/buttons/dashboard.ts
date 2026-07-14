@@ -1,1 +1,10 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/buttons/dashboard.ts
+import { opt } from '../../../../../lib/options';
+import { primaryColors } from '../../colors/primary';
+
+export default {
+    background: opt(primaryColors.base2),
+    enableBorder: opt(false),
+    border: opt(primaryColors.yellow),
+    icon: opt(primaryColors.yellow),
+    spacing: opt('0.5em'),
+};

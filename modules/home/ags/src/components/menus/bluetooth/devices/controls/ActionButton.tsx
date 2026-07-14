@@ -1,1 +1,25 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/controls/ActionButton.tsx
+import { Binding } from 'astal';
+import { ButtonProps } from 'astal/gtk4/widget';
+
+export const ActionButton = ({
+    name = '',
+    tooltipText = '',
+    label = '',
+    ...props
+}: ActionButtonProps): JSX.Element => {
+    return (
+        <button className={`menu-icon-button ${name} bluetooth`} {...props}>
+            <label
+                className={`menu-icon-button-label ${name} bluetooth txt-icon`}
+                tooltipText={tooltipText}
+                label={label}
+            />
+        </button>
+    );
+};
+
+interface ActionButtonProps extends ButtonProps {
+    name: string;
+    tooltipText: string | Binding<string>;
+    label: string | Binding<string>;
+}

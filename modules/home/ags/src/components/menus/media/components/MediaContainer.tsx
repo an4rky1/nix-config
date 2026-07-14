@@ -1,1 +1,28 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/MediaContainer.tsx
+import { getBackground } from './helpers.js';
+import { Gtk } from 'astal/gtk4';
+
+export const MediaContainer = ({ children }: MediaContainerProps): JSX.Element => {
+    return (
+        <box className="menu-items media" halign={Gtk.Align.FILL} hexpand>
+            <box className="menu-items-container media" halign={Gtk.Align.FILL} hexpand>
+                <box className={'menu-section-container'}>
+                    <box className={'menu-items-section'} vertical={false}>
+                        <box
+                            className={'menu-content'}
+                            css={getBackground()}
+                            halign={Gtk.Align.FILL}
+                            hexpand
+                            vertical
+                        >
+                            {children}
+                        </box>
+                    </box>
+                </box>
+            </box>
+        </box>
+    );
+};
+
+interface MediaContainerProps {
+    children?: JSX.Element | JSX.Element[];
+}

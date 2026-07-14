@@ -1,10 +1,10 @@
 import './src/lib/session';
 import './src/style';
-import 'src/core/behaviors/bar';
+import './src/core/behaviors/bar';
 import { App } from 'astal/gtk4';
-import { runCLI } from 'src/services/cli/commander';
-import { InitializationService } from 'src/core/initialization';
-import { themeManager } from 'src/style';
+import { runCLI } from './src/services/cli/commander';
+import { InitializationService } from './src/core/initialization';
+import { themeManager } from './src/style';
 
 App.start({
     instanceName: 'hyprpanel',

@@ -1,1 +1,5 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/modules/separator/index.tsx
+import Separator from '../../../shared/Separator';
+
+export const ModuleSeparator = (): JSX.Element => {
+    return <Separator className={'bar-module-separator'} />;
+};

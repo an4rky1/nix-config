@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/core/behaviors/bar/windowTitle.ts
+import options from '../../../configuration';
+
+const { label, icon } = options.bar.windowtitle;
+
+label.subscribe(() => {
+    if (!label.get() && !icon.get()) {
+        icon.set(true);
+    }
+});
+
+icon.subscribe(() => {
+    if (!label.get() && !icon.get()) {
+        label.set(true);
+    }
+});

@@ -1,1 +1,14 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/header/Controls/index.tsx
+import { Gtk } from 'astal/gtk4';
+import Separator from '../../../../shared/Separator';
+import { ToggleSwitch } from './ToggleSwitch';
+import { DiscoverButton } from './DiscoverButton';
+
+export const Controls = (): JSX.Element => {
+    return (
+        <box className="controls-container" valign={Gtk.Align.START}>
+            <ToggleSwitch />
+            <Separator className="menu-separator bluetooth" />
+            <DiscoverButton />
+        </box>
+    );
+};

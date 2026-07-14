@@ -1,1 +1,16 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/menus/clock/index.ts
+import { opt } from '../../../../../lib/options';
+import { UnitType } from '../../../../../lib/units/temperature/types';
+
+export default {
+    time: {
+        military: opt(false),
+        hideSeconds: opt(false),
+    },
+    weather: {
+        enabled: opt(true),
+        interval: opt(60000),
+        unit: opt<UnitType>('imperial'),
+        location: opt('Los Angeles'),
+        key: opt<string>(''),
+    },
+};

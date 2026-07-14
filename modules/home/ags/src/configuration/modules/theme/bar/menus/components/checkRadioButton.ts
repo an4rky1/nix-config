@@ -1,1 +1,8 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/checkRadioButton.ts
+import { opt } from '../../../../../../lib/options';
+import { primaryColors } from '../../../colors/primary';
+import { tertiaryColors } from '../../../colors/tertiary';
+
+export default {
+    background: opt(primaryColors.surface1),
+    active: opt(tertiaryColors.lavender),
+};

@@ -1,1 +1,3 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/storage/types.ts
+import { SizeUnit } from '../../../../../lib/units/size/types';
+
+export type StorageUnit = SizeUnit | 'auto';

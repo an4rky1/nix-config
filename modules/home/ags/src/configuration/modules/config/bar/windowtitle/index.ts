@@ -1,1 +1,16 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/windowtitle/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    custom_title: opt(true),
+    title_map: opt([]),
+    class_name: opt(true),
+    label: opt(true),
+    icon: opt(true),
+    truncation: opt(true),
+    truncation_size: opt(50),
+    leftClick: opt(''),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

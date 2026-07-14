@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/shared/FontButton.tsx
+import { Gtk } from 'astal/gtk4';
+import { GObject } from 'astal';
+
+class FontButton extends Gtk.FontButton {
+    static {
+        GObject.registerClass({ GTypeName: 'FontButton' }, this);
+    }
+
+    constructor(props: Record<string, any>) {
+        const { setup, className, ...rest } = props;
+        super(rest);
+        if (className) this.add_css_class(className);
+        if (setup) setup(this);
+    }
+}
+
+export default FontButton;

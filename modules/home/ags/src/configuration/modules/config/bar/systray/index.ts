@@ -1,1 +1,7 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/systray/index.ts
+import { opt } from '../../../../../lib/options';
+import { SystrayIconMap } from './types';
+
+export default {
+    ignore: opt<string[]>([]),
+    customIcons: opt<SystrayIconMap>({}),
+};

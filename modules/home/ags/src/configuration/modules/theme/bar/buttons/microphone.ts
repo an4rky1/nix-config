@@ -1,1 +1,12 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/buttons/microphone.ts
+import { opt } from '../../../../../lib/options';
+import { primaryColors } from '../../colors/primary';
+
+export default {
+    enableBorder: opt(false),
+    border: opt(primaryColors.green),
+    background: opt(primaryColors.base2),
+    text: opt(primaryColors.green),
+    icon: opt(primaryColors.green),
+    icon_background: opt(primaryColors.base2),
+    spacing: opt('0.45em'),
+};

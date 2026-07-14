@@ -1,1 +1,16 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/colors/tertiary.ts
+export const tertiaryColors = {
+    pink: '#f5c2e8',
+    red: '#f38ba9',
+    mantle: '#181826',
+    surface0: '#313245',
+    overlay1: '#7f849d',
+    lavender: '#b4beff',
+    mauve: '#cba6f8',
+    green: '#a6e3a2',
+    sky: '#89dcec',
+    teal: '#94e2d6',
+    yellow: '#f9e2ae',
+    maroon: '#eba0ad',
+    crust: '#11111c',
+    surface2: '#585b71',
+};

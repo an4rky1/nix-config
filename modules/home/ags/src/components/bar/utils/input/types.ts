@@ -1,1 +1,28 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/utils/input/types.ts
+import { Variable } from 'astal';
+import { Gdk } from 'astal/gtk4';
+import { Opt } from '../../../../lib/options';
+import { GtkWidget } from '../../types';
+
+export type EventArgs = {
+    clicked: GtkWidget;
+    event: Gdk.Event;
+};
+
+export type UpdateHandlers = {
+    disconnectPrimary: () => void;
+    disconnectSecondary: () => void;
+    disconnectMiddle: () => void;
+    disconnectScroll: () => void;
+};
+
+export type InputHandlerEventArgs = {
+    cmd?: Opt<string> | Variable<string>;
+    fn?: (output: string) => void;
+};
+export type InputHandlerEvents = {
+    onPrimaryClick?: InputHandlerEventArgs;
+    onSecondaryClick?: InputHandlerEventArgs;
+    onMiddleClick?: InputHandlerEventArgs;
+    onScrollUp?: InputHandlerEventArgs;
+    onScrollDown?: InputHandlerEventArgs;
+};

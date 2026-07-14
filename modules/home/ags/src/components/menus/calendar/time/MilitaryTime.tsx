@@ -1,1 +1,35 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/calendar/time/MilitaryTime.tsx
+import { bind, Variable } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import options from '../../../../configuration';
+import { systemTime } from '../../../../lib/units/time';
+
+const { military, hideSeconds } = options.menus.clock.time;
+
+export const MilitaryTime = (): JSX.Element => {
+    const timeBinding = Variable.derive([bind(military), bind(hideSeconds)], (is24hr, hideSeconds) => {
+        if (!is24hr) {
+            return <box />;
+        }
+
+        return (
+            <box halign={Gtk.Align.CENTER}>
+                <label
+                    className={'clock-content-time'}
+                    label={bind(systemTime).as((time) => {
+                        return time?.format(hideSeconds ? '%H:%M' : '%H:%M:%S') ?? '';
+                    })}
+                />
+            </box>
+        );
+    });
+
+    return (
+        <box
+            onDestroy={() => {
+                timeBinding.drop();
+            }}
+        >
+            {timeBinding()}
+        </box>
+    );
+};

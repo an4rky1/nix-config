@@ -1,1 +1,25 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/network/wifi/WirelessAPs/NoWifi.tsx
+import { Gtk } from 'astal/gtk4';
+import { RefreshButton } from '../Controls/RefreshButton';
+import { WifiSwitch } from '../Controls/WifiSwitch';
+
+export const NoWifi = (): JSX.Element => {
+    return (
+        <box className="menu-section-container wifi" vertical>
+            <box className="menu-label-container" halign={Gtk.Align.FILL}>
+                <label className="menu-label" halign={Gtk.Align.START} hexpand label="Wi-Fi" />
+                <WifiSwitch />
+                <RefreshButton />
+            </box>
+
+            <box className="menu-items-section" vertical>
+                <label
+                    className="waps-not-found dim"
+                    expand
+                    halign={Gtk.Align.CENTER}
+                    valign={Gtk.Align.CENTER}
+                    label="Wi-Fi Adapter Not Found"
+                />
+            </box>
+        </box>
+    );
+};

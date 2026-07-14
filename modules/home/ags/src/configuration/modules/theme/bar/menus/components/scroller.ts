@@ -1,1 +1,6 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/scroller.ts
+import { opt } from '../../../../../../lib/options';
+
+export default {
+    radius: opt('0.7em'),
+    width: opt('0.25em'),
+};

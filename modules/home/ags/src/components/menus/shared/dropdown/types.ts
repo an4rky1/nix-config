@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/shared/dropdown/types.ts
+import { Astal, Gtk } from 'astal/gtk4';
+import { Binding } from 'astal';
+import { BarLocation } from '../../../../lib/options/types';
+
+export interface DropdownMenuProps {
+    name: string;
+    child?: JSX.Element | JSX.Element[] | Binding<JSX.Element | undefined>;
+    layout?: string;
+    transition?: Gtk.RevealerTransitionType | Binding<Gtk.RevealerTransitionType>;
+    exclusivity?: Astal.Exclusivity;
+    fixed?: boolean;
+    onDestroy?: () => void;
+}
+
+export type LocationMap = {
+    [key in BarLocation]: Astal.WindowAnchor;
+};

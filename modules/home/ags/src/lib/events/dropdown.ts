@@ -1,1 +1,8 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/lib/events/dropdown.ts
+import { EventBox } from 'astal/gtk4/widget';
+import Variable from 'astal/variable';
+
+type GlobalEventBoxes = {
+    [key: string]: EventBox;
+};
+
+export const globalEventBoxes: Variable<GlobalEventBoxes> = Variable({});

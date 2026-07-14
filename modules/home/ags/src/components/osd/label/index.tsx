@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/osd/label/index.tsx
+import { Gtk } from 'astal/gtk4';
+import { setupOsdLabel } from './helpers';
+
+export const OSDLabel = (): JSX.Element => {
+    return (
+        <box className={'osd-label-container'} hexpand vexpand>
+            <label
+                className={'osd-label'}
+                halign={Gtk.Align.CENTER}
+                valign={Gtk.Align.CENTER}
+                setup={setupOsdLabel}
+                hexpand
+                vexpand
+            />
+        </box>
+    );
+};

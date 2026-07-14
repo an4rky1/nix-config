@@ -1,5 +1,5 @@
 import { execAsync } from 'astal/process';
-import { SystemUtilities } from 'src/core/system/SystemUtilities';
+import { SystemUtilities } from '../../core/system/SystemUtilities';
 
 /**
  * Manages the lifecycle of the swww daemon process

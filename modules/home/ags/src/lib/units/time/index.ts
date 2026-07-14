@@ -1,1 +1,6 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/lib/units/time/index.ts
+import { GLib, Variable } from 'astal';
+
+export const systemTime = Variable(GLib.DateTime.new_now_local()).poll(
+    1000,
+    (): GLib.DateTime => GLib.DateTime.new_now_local(),
+);

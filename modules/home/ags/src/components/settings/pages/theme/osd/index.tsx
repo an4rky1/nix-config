@@ -1,1 +1,45 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/pages/theme/osd/index.tsx
+import { Option } from '../../../shared/Option';
+import { Header } from '../../../shared/Header';
+
+import options from '../../../../../configuration';
+import { Gtk } from 'astal/gtk4';
+
+import Scrollable from '../../../../shared/Scrollable';
+
+export const OsdTheme = (): JSX.Element => {
+    return (
+        <Scrollable
+            name={'OSD'}
+            className="osd-theme-page paged-container"
+            vscroll={Gtk.PolicyType.AUTOMATIC}
+            hscroll={Gtk.PolicyType.AUTOMATIC}
+            vexpand={true}
+        >
+            <box vertical>
+                {/* On Screen Display Settings Section */}
+                <Header title="On Screen Display Settings" />
+                <Option
+                    opt={options.theme.osd.opacity}
+                    title="OSD Opacity"
+                    type="number"
+                    increment={5}
+                    min={0}
+                    max={100}
+                />
+                <Option opt={options.theme.osd.border.color} title="Border" type="color" />
+                <Option opt={options.theme.osd.bar_color} title="Bar" type="color" />
+                <Option
+                    opt={options.theme.osd.bar_overflow_color}
+                    title="Bar Overflow"
+                    subtitle="Overflow color is for when the volume goes over a 100"
+                    type="color"
+                />
+                <Option opt={options.theme.osd.bar_empty_color} title="Bar Background" type="color" />
+                <Option opt={options.theme.osd.bar_container} title="Bar Container" type="color" />
+                <Option opt={options.theme.osd.icon} title="Icon" type="color" />
+                <Option opt={options.theme.osd.icon_container} title="Icon Container" type="color" />
+                <Option opt={options.theme.osd.label} title="Value Text" type="color" />
+            </box>
+        </Scrollable>
+    );
+};

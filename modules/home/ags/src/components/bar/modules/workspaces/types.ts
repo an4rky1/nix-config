@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/modules/workspaces/types.ts
+export type WorkspaceIcons = {
+    [key: string]: string;
+};
+
+export type WorkspaceIconsColored = {
+    [key: string]: {
+        color: string;
+        icon: string;
+    };
+};
+export type ApplicationIcons = {
+    [key: string]: string;
+};
+
+export type WorkspaceIconMap = WorkspaceIcons | WorkspaceIconsColored;

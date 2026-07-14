@@ -1,1 +1,20 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/BluetoothUnavailable.tsx
+import { Gtk } from 'astal/gtk4';
+
+export const BluetoothUnavailable = (): JSX.Element => {
+    return (
+        <box
+            className={'bluetooth-items'}
+            vertical
+            expand
+            valign={Gtk.Align.CENTER}
+            halign={Gtk.Align.CENTER}
+        >
+            <label className={'no-bluetooth-devices dim'} hexpand label={'Bluetooth service unavailable'} />
+            <label
+                className={'no-bluetooth-devices dim'}
+                hexpand
+                label={'Please install bluez and bluez-utils'}
+            />
+        </box>
+    );
+};

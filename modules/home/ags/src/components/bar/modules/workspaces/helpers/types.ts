@@ -1,1 +1,7 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/modules/workspaces/helpers/types.ts
+import { ApplicationIcons } from '../types';
+
+export type AppIconOptions = {
+    iconMap: ApplicationIcons;
+    defaultIcon: string;
+    emptyIcon: string;
+};

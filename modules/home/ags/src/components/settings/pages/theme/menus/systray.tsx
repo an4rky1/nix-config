@@ -1,1 +1,39 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/pages/theme/menus/systray.tsx
+import { Option } from '../../../shared/Option';
+import { Header } from '../../../shared/Header';
+
+import options from '../../../../../configuration';
+import { Gtk } from 'astal/gtk4';
+
+import Scrollable from '../../../../shared/Scrollable';
+
+export const SystrayMenuTheme = (): JSX.Element => {
+    return (
+        <Scrollable
+            name={'System Tray'}
+            className="menu-theme-page systray paged-container"
+            vscroll={Gtk.PolicyType.AUTOMATIC}
+            hscroll={Gtk.PolicyType.AUTOMATIC}
+            vexpand={true}
+        >
+            <box vertical>
+                {/* Dropdown Menu Section */}
+                <Header title="Dropdown Menu" />
+                <Option
+                    opt={options.theme.bar.menus.menu.systray.dropdownmenu.background}
+                    title="Background"
+                    type="color"
+                />
+                <Option
+                    opt={options.theme.bar.menus.menu.systray.dropdownmenu.text}
+                    title="Text"
+                    type="color"
+                />
+                <Option
+                    opt={options.theme.bar.menus.menu.systray.dropdownmenu.divider}
+                    title="Section Divider"
+                    type="color"
+                />
+            </box>
+        </Scrollable>
+    );
+};

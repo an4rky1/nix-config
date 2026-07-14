@@ -1,1 +1,18 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/energy/brightness/Percentage.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import BrightnessService from '../../../../services/system/brightness';
+
+const brightnessService = BrightnessService.getInstance();
+
+export const BrightnessPercentage = (): JSX.Element => {
+    return (
+        <label
+            className={'brightness-slider-label'}
+            label={bind(brightnessService, 'screen').as((screenBrightness) => {
+                return `${Math.round(screenBrightness * 100)}%`;
+            })}
+            valign={Gtk.Align.CENTER}
+            vexpand
+        />
+    );
+};

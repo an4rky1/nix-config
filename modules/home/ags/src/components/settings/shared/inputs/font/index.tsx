@@ -1,1 +1,44 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/shared/inputs/font/index.tsx
+import { hook } from 'astal/gtk4';
+import FontButton from '../../../../shared/FontButton';
+import { FontStyle, styleToString } from './utils';
+import { Opt } from '../../../../../lib/options';
+
+export const FontInputter = <T extends string | number | boolean | object>({
+    fontFamily,
+    fontStyle,
+    fontLabel,
+}: FontInputterProps<T>): JSX.Element => (
+    <FontButton
+        showSize={false}
+        useSize={false}
+        setup={(self) => {
+            self.font = fontLabel?.get() ?? (fontFamily.get() as string);
+
+            if (fontLabel) {
+                hook(self, fontLabel, () => {
+                    self.font = fontLabel.get() as string;
+                });
+            } else {
+                hook(self, fontFamily, () => {
+                    self.font = fontFamily.get() as string;
+                });
+            }
+
+            self.connect('font-set', ({ fontDesc, font }) => {
+                const selectedFontFamily = fontDesc.get_family();
+                const selectedFontStyle = styleToString(fontDesc.get_style());
+
+                fontFamily.set(selectedFontFamily as T);
+
+                fontStyle?.set(selectedFontStyle);
+                fontLabel?.set(font.split(' ').slice(0, -1).join(' '));
+            });
+        }}
+    />
+);
+
+interface FontInputterProps<T> {
+    fontFamily: Opt<T>;
+    fontStyle?: Opt<FontStyle>;
+    fontLabel?: Opt<string>;
+}

@@ -1,1 +1,17 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/DeviceListItem.tsx
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+import { DeviceControls } from './controls';
+import { BluetoothDevice } from './device';
+
+export const DeviceListItem = ({ btDevice, connectedDevices }: DeviceListItemProps): JSX.Element => {
+    return (
+        <box>
+            <BluetoothDevice device={btDevice} connectedDevices={connectedDevices} />
+            <DeviceControls device={btDevice} connectedDevices={connectedDevices} />
+        </box>
+    );
+};
+
+interface DeviceListItemProps {
+    btDevice: AstalBluetooth.Device;
+    connectedDevices: string[];
+}

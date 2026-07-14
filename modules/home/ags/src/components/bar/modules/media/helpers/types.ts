@@ -1,1 +1,8 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/modules/media/helpers/types.ts
+export type MediaTags = {
+    title: string;
+    artists: string;
+    artist: string;
+    album: string;
+    name: string;
+    identity: string;
+};

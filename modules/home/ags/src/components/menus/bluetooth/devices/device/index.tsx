@@ -1,1 +1,53 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/device/index.tsx
+import { Gtk } from 'astal/gtk4';
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+import Spinner from '../../../../shared/Spinner';
+import { bind } from 'astal';
+import { DeviceIcon } from './DeviceIcon';
+import { DeviceName } from './DeviceName';
+import { DeviceStatus } from './DeviceStatus';
+import { isPrimaryClick } from '../../../../../lib/events/mouse';
+import { onPrimaryClick } from '../../../../../lib/shared/eventHandlers';
+
+export const BluetoothDevice = ({ device, connectedDevices }: BluetoothDeviceProps): JSX.Element => {
+    const IsConnectingSpinner = (): JSX.Element => {
+        return (
+            <revealer revealChild={bind(device, 'connecting')}>
+                <Spinner valign={Gtk.Align.START} className="spinner bluetooth" />
+            </revealer>
+        );
+    };
+
+    return (
+        <button
+            hexpand
+            className={`bluetooth-element-item ${device}`}
+            setup={(self) => {
+                onPrimaryClick(self, (_, event) => {
+                    if (!connectedDevices.includes(device.address) && isPrimaryClick(event)) {
+                        device.connect_device((res) => {
+                            console.info(res);
+                        });
+                    }
+                });
+            }}
+        >
+            <box>
+                <box hexpand halign={Gtk.Align.START} className="menu-button-container">
+                    <DeviceIcon device={device} connectedDevices={connectedDevices} />
+                    <box vertical valign={Gtk.Align.CENTER}>
+                        <DeviceName device={device} />
+                        <DeviceStatus device={device} />
+                    </box>
+                </box>
+                <box halign={Gtk.Align.END}>
+                    <IsConnectingSpinner />
+                </box>
+            </box>
+        </button>
+    );
+};
+
+interface BluetoothDeviceProps {
+    device: AstalBluetooth.Device;
+    connectedDevices: string[];
+}

@@ -1,1 +1,3 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/lib/poller/types.ts
+export type GenericFunction<Value, Parameters extends unknown[]> = (
+    ...args: Parameters
+) => Promise<Value> | Value;

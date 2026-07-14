@@ -1,1 +1,13 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/energy/profiles/Header.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import { renderUptime } from './helpers';
+import { uptime } from '../../../../services/system/uptime';
+
+export const PowerProfileHeader = (): JSX.Element => {
+    return (
+        <box className="menu-label-container" halign={Gtk.Align.FILL}>
+            <label className="menu-label" label="Power Profile" halign={Gtk.Align.START} hexpand />
+            <label className="menu-label uptime" label={bind(uptime).as(renderUptime)} tooltipText="Uptime" />
+        </box>
+    );
+};

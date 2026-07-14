@@ -1,1 +1,27 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/index.tsx
+import { bind } from 'astal';
+import DropdownMenu from '../shared/dropdown/index.js';
+import options from '../../../configuration';
+import { MediaContainer } from './components/MediaContainer.js';
+import { MediaInfo } from './components/title/index.js';
+import { MediaControls } from './components/controls/index.js';
+import { MediaSlider } from './components/timebar/index.js';
+import { MediaTimeStamp } from './components/timelabel/index.js';
+import { RevealerTransitionMap } from '../../settings/constants.js';
+
+const { transition } = options.menus;
+
+export default (): JSX.Element => {
+    return (
+        <DropdownMenu
+            name="mediamenu"
+            transition={bind(transition).as((transition) => RevealerTransitionMap[transition])}
+        >
+            <MediaContainer>
+                <MediaInfo />
+                <MediaControls />
+                <MediaSlider />
+                <MediaTimeStamp />
+            </MediaContainer>
+        </DropdownMenu>
+    );
+};

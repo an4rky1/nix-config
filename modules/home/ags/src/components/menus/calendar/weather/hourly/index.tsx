@@ -1,1 +1,18 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/calendar/weather/hourly/index.tsx
+import { HourlyIcon } from './icon/index.js';
+import { HourlyTemp } from './temperature/index.js';
+import { HourlyTime } from './time/index.js';
+import { Gtk } from 'astal/gtk4';
+
+export const HourlyTemperature = (): JSX.Element => {
+    return (
+        <box className={'hourly-weather-container'} halign={Gtk.Align.FILL} vertical={false} hexpand>
+            {[1, 2, 3, 4].map((hoursFromNow) => (
+                <box className={'hourly-weather-item'} hexpand vertical>
+                    <HourlyTime hoursFromNow={hoursFromNow} />
+                    <HourlyIcon hoursFromNow={hoursFromNow} />
+                    <HourlyTemp hoursFromNow={hoursFromNow} />
+                </box>
+            ))}
+        </box>
+    );
+};

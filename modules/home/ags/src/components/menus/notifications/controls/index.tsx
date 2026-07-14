@@ -1,1 +1,24 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/notifications/controls/index.tsx
+import { Gtk } from 'astal/gtk4';
+import Separator from '../../../shared/Separator';
+import { MenuLabel } from './MenuLabel';
+import { DndSwitch } from './DndSwitch';
+import { ClearNotificationsButton } from './ClearNotificationsButton';
+
+const Controls = (): JSX.Element => {
+    return (
+        <box className={'notification-menu-controls'} expand={false} vertical={false}>
+            <MenuLabel />
+            <box halign={Gtk.Align.END} valign={Gtk.Align.CENTER} expand={false}>
+                <DndSwitch />
+                <Separator
+                    halign={Gtk.Align.CENTER}
+                    vexpand={true}
+                    className={'menu-separator notification-controls'}
+                />
+                <ClearNotificationsButton />
+            </box>
+        </box>
+    );
+};
+
+export { Controls };

@@ -1,1 +1,25 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/calendar/CalendarWidget.tsx
+import { Gtk } from 'astal/gtk4';
+import Calendar from '../../shared/Calendar';
+
+export const CalendarWidget = (): JSX.Element => {
+    return (
+        <box
+            className={'calendar-menu-item-container calendar'}
+            halign={Gtk.Align.FILL}
+            valign={Gtk.Align.FILL}
+            expand
+        >
+            <box className={'calendar-container-box'}>
+                <Calendar
+                    className={'calendar-menu-widget'}
+                    halign={Gtk.Align.FILL}
+                    valign={Gtk.Align.FILL}
+                    showDetails={false}
+                    expand
+                    showDayNames
+                    showHeading
+                />
+            </box>
+        </box>
+    );
+};

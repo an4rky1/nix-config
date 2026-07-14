@@ -1,1 +1,13 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/audio/available/NotFoundButton.tsx
+import { Gtk } from 'astal/gtk4';
+
+export const NotFoundButton = ({ type }: { type: string }): JSX.Element => {
+    return (
+        <button className={`menu-unfound-button ${type}`} sensitive={false}>
+            <box>
+                <box halign={Gtk.Align.START}>
+                    <label className={`menu-button-name ${type}`} label={`No ${type} devices found...`} />
+                </box>
+            </box>
+        </button>
+    );
+};

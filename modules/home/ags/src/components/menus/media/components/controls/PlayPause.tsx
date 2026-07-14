@@ -1,1 +1,46 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/controls/PlayPause.tsx
+import { Astal, Gtk, Widget } from 'astal/gtk4';
+import { bind } from 'astal';
+import Icon from '../../../../shared/Icon';
+import { getPlaybackIcon } from './helpers';
+import AstalMpris from 'gi://AstalMpris?version=0.1';
+import { canPlay, playbackStatus, activePlayer } from '../../../../../services/media';
+import { isPrimaryClick } from '../../../../../lib/events/mouse';
+import { onPrimaryClick } from '../../../../../lib/shared/eventHandlers';
+
+export const PlayPause = (): JSX.Element => {
+    const className = bind(canPlay).as((canPlay) => {
+        return `media-indicator-control-button play ${canPlay ? 'enabled' : 'disabled'}`;
+    });
+
+    const icon = bind(playbackStatus).as((status) => {
+        return getPlaybackIcon(status);
+    });
+
+    const tooltipText = bind(playbackStatus).as((playbackStatus) => {
+        return playbackStatus === AstalMpris.PlaybackStatus.PLAYING ? 'Pause' : 'Play';
+    });
+
+    return (
+        <button
+            className={className}
+            halign={Gtk.Align.CENTER}
+            hasTooltip
+            tooltipText={tooltipText}
+            setup={(self) => {
+                onPrimaryClick(self, (_, event) => {
+                    if (!isPrimaryClick(event)) {
+                        return;
+                    }
+
+                    const currentPlayer = activePlayer.get();
+
+                    if (currentPlayer && currentPlayer.can_play) {
+                        currentPlayer.play_pause();
+                    }
+                });
+            }}
+        >
+            <Icon icon={icon} />
+        </button>
+    );
+};

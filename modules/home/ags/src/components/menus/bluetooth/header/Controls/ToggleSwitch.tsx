@@ -1,1 +1,25 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/header/Controls/ToggleSwitch.tsx
+import { bind, Variable } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+
+const bluetoothService = AstalBluetooth.get_default();
+
+const isPowered = Variable(false);
+
+Variable.derive([bind(bluetoothService, 'isPowered')], (isOn) => {
+    return isPowered.set(isOn);
+});
+
+export const ToggleSwitch = (): JSX.Element => (
+    <switch
+        className="menu-switch bluetooth"
+        halign={Gtk.Align.END}
+        hexpand
+        active={bluetoothService.isPowered}
+        setup={(self) => {
+            self.connect('notify::active', () => {
+                bluetoothService.adapter?.set_powered(self.active);
+            });
+        }}
+    />
+);

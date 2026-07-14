@@ -1,1 +1,9 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/lib/shared/eventHandlers/types.ts
+import { Variable } from 'astal';
+import { EventArgs } from '../../../components/bar/utils/input/types';
+
+export type ThrottleFn = (
+    cmd: string,
+    args: EventArgs,
+    fn?: (output: string) => void,
+    postInputUpdated?: Variable<boolean>,
+) => void;

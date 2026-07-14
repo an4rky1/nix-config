@@ -1,1 +1,36 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/shared/inputs/image.tsx
+import { Gtk } from 'astal/gtk4';
+import FileChooserButton from '../../../shared/FileChooserButton';
+import { Opt } from '../../../../lib/options';
+
+const handleFileSet =
+    <T,>(opt: Opt<T>) =>
+    (self: Gtk.FileChooserButton): void => {
+        const uri = self.get_uri();
+
+        if (uri === null) {
+            return;
+        }
+
+        try {
+            const decodedPath = decodeURIComponent(uri.replace('file://', ''));
+            opt.set(decodedPath as unknown as T);
+        } catch (error) {
+            console.error('Failed to decode URI:', error);
+        }
+    };
+
+export const ImageInputter = <T extends string | number | boolean | object>({
+    opt,
+}: ImageInputterProps<T>): JSX.Element => {
+    return (
+        <FileChooserButton
+            on_file_set={(self) => {
+                return handleFileSet(opt)(self);
+            }}
+        />
+    );
+};
+
+interface ImageInputterProps<T> {
+    opt: Opt<T>;
+}

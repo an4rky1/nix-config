@@ -1,1 +1,19 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/colors/secondary.ts
+export const secondaryColors = {
+    text: '#cdd6f3',
+    pink: '#f5c2e6',
+    red: '#f38ba7',
+    peach: '#fab386',
+    mantle: '#181824',
+    surface1: '#454759',
+    surface0: '#313243',
+    overlay1: '#7f849b',
+    lavender: '#b4befd',
+    mauve: '#cba6f6',
+    green: '#a6e3a0',
+    sky: '#89dcea',
+    teal: '#94e2d4',
+    yellow: '#f9e2ad',
+    maroon: '#eba0ab',
+    crust: '#11111a',
+    surface2: '#585b69',
+};

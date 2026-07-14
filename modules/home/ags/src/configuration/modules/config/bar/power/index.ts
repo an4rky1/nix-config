@@ -1,1 +1,11 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/power/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    icon: opt(''),
+    showLabel: opt(true),
+    leftClick: opt('menu:powerdropdown'),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

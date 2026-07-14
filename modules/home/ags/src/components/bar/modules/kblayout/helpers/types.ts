@@ -1,1 +1,27 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/bar/modules/kblayout/helpers/types.ts
+export type KbLabelType = 'layout' | 'code';
+
+export type HyprctlKeyboard = {
+    address: string;
+    name: string;
+    rules: string;
+    model: string;
+    layout: string;
+    variant: string;
+    options: string;
+    active_keymap: string;
+    main: boolean;
+};
+
+type HyprctlMouse = {
+    address: string;
+    name: string;
+    defaultSpeed: number;
+};
+
+export type HyprctlDeviceLayout = {
+    mice: HyprctlMouse[];
+    keyboards: HyprctlKeyboard[];
+    tablets: unknown[];
+    touch: unknown[];
+    switches: unknown[];
+};

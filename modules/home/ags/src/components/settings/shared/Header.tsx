@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/shared/Header.tsx
+import { Gtk } from 'astal/gtk4';
+import Separator from '../../shared/Separator';
+
+export const Header = ({ title }: HeaderProps): JSX.Element => {
+    return (
+        <box className="options-header">
+            <label className="label-name" label={title} />
+            <Separator className="menu-separator" valign={Gtk.Align.CENTER} hexpand />
+        </box>
+    );
+};
+
+interface HeaderProps {
+    title: string;
+}

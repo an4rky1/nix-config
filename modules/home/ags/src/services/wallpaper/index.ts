@@ -1,8 +1,8 @@
 import GObject, { GLib, property, register, signal } from 'astal/gobject';
 import { monitorFile } from 'astal/file';
-import * as AstalHyprland from 'src/services/niri';
-import options from 'src/configuration';
-import { SystemUtilities } from 'src/core/system/SystemUtilities';
+import AstalHyprland from '../niri';
+import options from '../../configuration';
+import { SystemUtilities } from '../../core/system/SystemUtilities';
 import { SwwwDaemon } from './SwwwDaemon';
 
 const hyprlandService = AstalHyprland.get_default();

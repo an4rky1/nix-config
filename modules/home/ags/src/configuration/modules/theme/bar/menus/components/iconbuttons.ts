@@ -1,1 +1,8 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/iconbuttons.ts
+import { opt } from '../../../../../../lib/options';
+import { secondaryColors } from '../../../colors/secondary';
+import { tertiaryColors } from '../../../colors/tertiary';
+
+export default {
+    passive: opt(secondaryColors.text),
+    active: opt(tertiaryColors.lavender),
+};

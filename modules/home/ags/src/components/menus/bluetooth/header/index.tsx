@@ -1,1 +1,22 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/header/index.tsx
+import { Gtk } from 'astal/gtk4';
+import { Controls } from './Controls';
+
+export const Header = (): JSX.Element => {
+    const MenuLabel = (): JSX.Element => {
+        return (
+            <label
+                className="menu-label"
+                valign={Gtk.Align.CENTER}
+                halign={Gtk.Align.START}
+                label="Bluetooth"
+            />
+        );
+    };
+
+    return (
+        <box className="menu-label-container" halign={Gtk.Align.FILL} valign={Gtk.Align.START}>
+            <MenuLabel />
+            <Controls />
+        </box>
+    );
+};

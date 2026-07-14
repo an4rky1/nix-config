@@ -1,1 +1,9 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/services/cli/commander/commands/system/dependencies/types.ts
+export type DependencyType = 'executable' | 'library' | 'service';
+
+export type Dependency = {
+    package: string;
+    required: boolean;
+    type: DependencyType;
+    check: string[];
+    description?: string;
+};

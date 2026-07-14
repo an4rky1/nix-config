@@ -1,1 +1,20 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/device/DeviceName.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+
+export const DeviceName = ({ device }: DeviceNameProps): JSX.Element => {
+    return (
+        <label
+            valign={Gtk.Align.CENTER}
+            halign={Gtk.Align.START}
+            className="menu-button-name bluetooth"
+            truncate
+            wrap
+            label={bind(device, 'alias')}
+        />
+    );
+};
+
+interface DeviceNameProps {
+    device: AstalBluetooth.Device;
+}

@@ -1,1 +1,1 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/lib/units/length/types.ts
+export type LengthUnit = 'mm' | 'cm' | 'm' | 'km' | 'in' | 'ft' | 'mi';

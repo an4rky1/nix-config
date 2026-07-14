@@ -1,1 +1,11 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/services/system/networkUsage/types.ts
+import { Variable } from 'astal';
+
+export interface NetworkServiceCtor {
+    frequency?: Variable<number>;
+}
+
+export interface NetworkUsage {
+    name: string;
+    rx: number;
+    tx: number;
+}

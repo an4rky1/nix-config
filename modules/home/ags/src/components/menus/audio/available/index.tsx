@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/audio/available/index.tsx
+import { PlaybackDevices } from './PlaybackDevices.js';
+import { InputDevices } from './InputDevices.js';
+import { Header } from './Header.js';
+
+export const AvailableDevices = (): JSX.Element => {
+    return (
+        <box vertical className={'menu-section-container playback'}>
+            <Header type={'playback'} label={'Playback Device'} />
+            <PlaybackDevices />
+
+            <Header type={'input'} label={'Input Device'} />
+            <InputDevices />
+        </box>
+    );
+};

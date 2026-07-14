@@ -1,1 +1,13 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/ram/index.ts
+import { opt } from '../../../../../lib/options';
+import { ResourceLabelType } from '../../../../../services/system/types';
+
+export default {
+    icon: opt(''),
+    label: opt(true),
+    labelType: opt<ResourceLabelType>('percentage'),
+    round: opt(true),
+    pollingInterval: opt(2000),
+    leftClick: opt(''),
+    rightClick: opt(''),
+    middleClick: opt(''),
+};

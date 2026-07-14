@@ -1,1 +1,18 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/netstat/index.ts
+import { opt } from '../../../../../lib/options';
+import { NetstatLabelType, RateUnit } from '../../../../../services/system/types';
+
+export default {
+    label: opt(true),
+    networkInterface: opt(''),
+    dynamicIcon: opt(false),
+    icon: opt('󰖟'),
+    networkInLabel: opt('↓'),
+    networkOutLabel: opt('↑'),
+    round: opt(true),
+    labelType: opt<NetstatLabelType>('full'),
+    rateUnit: opt<RateUnit>('auto'),
+    pollingInterval: opt(2000),
+    leftClick: opt(''),
+    rightClick: opt(''),
+    middleClick: opt(''),
+};

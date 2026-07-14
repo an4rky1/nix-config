@@ -1,1 +1,13 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/kbLayout/index.ts
+import { KbLabelType } from '../../../../../components/bar/modules/kblayout/helpers/types';
+import { opt } from '../../../../../lib/options';
+
+export default {
+    label: opt(true),
+    labelType: opt<KbLabelType>('code'),
+    icon: opt('󰌌'),
+    leftClick: opt(''),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

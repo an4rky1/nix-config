@@ -1,1 +1,33 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/shared/inputs/object/EditorControls.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import { EditorControlsProps } from './types';
+
+export const EditorControls = ({ jsonError, onSave }: EditorControlsProps): JSX.Element => {
+    return (
+        <box vertical className="editor-controls">
+            <revealer
+                revealChild={bind(jsonError).as((err) => err.length > 0)}
+                transitionType={Gtk.RevealerTransitionType.SLIDE_DOWN}
+            >
+                <label
+                    className="error-message"
+                    halign={Gtk.Align.START}
+                    label={bind(jsonError)}
+                    wrap
+                    wrapMode={Gtk.WrapMode.WORD}
+                    maxWidthChars={50}
+                />
+            </revealer>
+
+            <box className="controls-row">
+                <label label="Press Ctrl+Enter to save" className="hint-text" halign={Gtk.Align.START} />
+                <box hexpand />
+                <button className="save-button" onClicked={onSave}>
+                    <box>
+                        <label label="Save" />
+                    </box>
+                </button>
+            </box>
+        </box>
+    );
+};

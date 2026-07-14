@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/hyprsunset/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    temperature: opt('6000k'),
+    label: opt(true),
+    onIcon: opt('󱩌'),
+    offIcon: opt('󰛨'),
+    onLabel: opt('On'),
+    offLabel: opt('Off'),
+    pollingInterval: opt(1000 * 2),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

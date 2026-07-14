@@ -1,1 +1,6 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/style/scss/bar/module-separator.scss
+.bar-module-separator {
+    background-color: $bar-buttons-separator-color;
+    opacity: $bar-buttons-opacity * 0.01;
+    margin: $bar-buttons-separator-margins;
+    min-width: $bar-buttons-separator-width;
+}

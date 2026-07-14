@@ -1,1 +1,12 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/core/behaviors/index.ts
+import '../../services/display/bar/autoHide';
+import { warnOnLowBattery } from './batteryWarning';
+import { hyprlandSettings } from './hyprlandRules';
+import { BarAutoHideService } from '../../services/display/bar/autoHide';
+
+const autoHide = BarAutoHideService.getInstance();
+
+export const initializeSystemBehaviors = (): void => {
+    warnOnLowBattery();
+    autoHide.initialize();
+    hyprlandSettings();
+};

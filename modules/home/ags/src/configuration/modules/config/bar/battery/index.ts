@@ -1,1 +1,10 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/battery/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    label: opt(true),
+    hideLabelWhenFull: opt(false),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

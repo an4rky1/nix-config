@@ -1,1 +1,23 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/dashboard/shortcuts/index.tsx
+import { Gtk } from 'astal/gtk4';
+import { LeftShortcuts, RightShortcuts } from './sections/Section';
+import { recordingPoller } from './helpers';
+import { JSXElement } from '../../../../core/types';
+
+export const Shortcuts = ({ isEnabled }: ShortcutsProps): JSXElement => {
+    if (!isEnabled) {
+        recordingPoller.stop();
+        return null;
+    }
+    recordingPoller.initialize();
+
+    return (
+        <box className={'shortcuts-container'} halign={Gtk.Align.FILL} hexpand>
+            <LeftShortcuts />
+            <RightShortcuts />
+        </box>
+    );
+};
+
+interface ShortcutsProps {
+    isEnabled: boolean;
+}

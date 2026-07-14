@@ -1,1 +1,20 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/updates/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    updateCommand: opt(`${SRC_DIR}/scripts/checkUpdates.sh -arch`),
+    updateTooltipCommand: opt(`${SRC_DIR}/scripts/checkUpdates.sh -arch -tooltip`),
+    extendedTooltip: opt(false),
+    label: opt(true),
+    padZero: opt(true),
+    autoHide: opt(false),
+    icon: {
+        pending: opt('󰏗'),
+        updated: opt('󰏖'),
+    },
+    pollingInterval: opt(1000 * 60 * 60 * 6),
+    leftClick: opt(`$TERMINAL -e ${SRC_DIR}/scripts/runUpdates.sh -arch`),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

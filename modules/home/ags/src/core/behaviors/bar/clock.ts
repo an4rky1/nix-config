@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/core/behaviors/bar/clock.ts
+import options from '../../../configuration';
+
+const { showIcon, showTime } = options.bar.clock;
+
+showIcon.subscribe(() => {
+    if (!showTime.get() && !showIcon.get()) {
+        showTime.set(true);
+    }
+});
+
+showTime.subscribe(() => {
+    if (!showTime.get() && !showIcon.get()) {
+        showIcon.set(true);
+    }
+});

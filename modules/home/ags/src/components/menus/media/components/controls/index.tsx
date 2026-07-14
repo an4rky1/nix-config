@@ -1,1 +1,21 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/controls/index.tsx
+import { NextTrack, PreviousTrack } from './Tracks.js';
+import { PlayPause } from './PlayPause.js';
+import { Loop, Shuffle } from './Modes.js';
+import { Gtk } from 'astal/gtk4';
+import { NextPlayer, PreviousPlayer } from './Players.js';
+
+export const MediaControls = (): JSX.Element => {
+    return (
+        <box className={'media-indicator-current-player-controls'} vertical>
+            <box className={'media-indicator-current-controls'} halign={Gtk.Align.CENTER}>
+                <PreviousPlayer />
+                <Shuffle />
+                <PreviousTrack />
+                <PlayPause />
+                <NextTrack />
+                <Loop />
+                <NextPlayer />
+            </box>
+        </box>
+    );
+};

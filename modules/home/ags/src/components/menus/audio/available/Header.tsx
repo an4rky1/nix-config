@@ -1,1 +1,14 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/audio/available/Header.tsx
+import { Gtk } from 'astal/gtk4';
+
+export const Header = ({ type, label }: HeaderProps): JSX.Element => {
+    return (
+        <box className={`menu-label-container ${type}`} halign={Gtk.Align.FILL}>
+            <label className={`menu-label audio ${type}`} halign={Gtk.Align.START} hexpand label={label} />
+        </box>
+    );
+};
+
+interface HeaderProps {
+    type: 'playback' | 'input';
+    label: string;
+}

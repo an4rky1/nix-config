@@ -1,1 +1,36 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/osd/index.tsx
+import options from '../../configuration';
+import { bind } from 'astal';
+import { App, Astal } from 'astal/gtk4';
+import { getOsdMonitor } from './helpers';
+import { getPosition } from '../../lib/window/positioning';
+import { OsdRevealer } from './revealer';
+
+const { location } = options.theme.osd;
+
+export default (): JSX.Element => {
+    const osdMonitorBinding = getOsdMonitor();
+
+    return (
+        <window
+            monitor={osdMonitorBinding()}
+            name={'indicator'}
+            application={App}
+            namespace={'indicator'}
+            className={'indicator'}
+            visible={true}
+            layer={bind(options.tear).as((tear) => (tear ? Astal.Layer.TOP : Astal.Layer.OVERLAY))}
+            anchor={bind(location).as((anchorPoint) => getPosition(anchorPoint))}
+            setup={(self) => {
+                osdMonitorBinding().subscribe(() => {
+                    self.set_click_through(true);
+                });
+            }}
+            onDestroy={() => {
+                osdMonitorBinding.drop();
+            }}
+            clickThrough
+        >
+            <OsdRevealer />
+        </window>
+    );
+};

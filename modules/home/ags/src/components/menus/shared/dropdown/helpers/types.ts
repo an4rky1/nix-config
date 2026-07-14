@@ -1,1 +1,11 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/shared/dropdown/helpers/types.ts
+import { BarLocation } from '../../../../../lib/options/types';
+
+export type EventBoxPaddingProps = {
+    className: string;
+    windowName: string;
+};
+
+export type BarEventMarginsProps = {
+    windowName: string;
+    location?: BarLocation;
+};

@@ -1,1 +1,12 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/network/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    truncation: opt(true),
+    showWifiInfo: opt(false),
+    truncation_size: opt(7),
+    label: opt(true),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

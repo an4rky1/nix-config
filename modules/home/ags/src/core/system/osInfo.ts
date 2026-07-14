@@ -1,1 +1,6 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/core/system/osInfo.ts
+import { GLib } from 'astal';
+
+export const distro = {
+    id: GLib.get_os_info('ID'),
+    logo: GLib.get_os_info('LOGO'),
+};

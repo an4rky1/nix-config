@@ -1,1 +1,31 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/services/cli/commander/types.ts
+export interface PositionalArg {
+    name: string;
+    description: string;
+    type: 'string' | 'number' | 'boolean' | 'object';
+    required?: boolean;
+    default?: string | number | boolean | Record<string, unknown>;
+}
+
+type HandlerReturn = unknown | Promise<unknown>;
+
+export interface Command {
+    name: string;
+    aliases?: string[];
+    description: string;
+    category: string;
+    args: PositionalArg[];
+    handler: (args: Record<string, unknown>) => HandlerReturn;
+}
+
+export interface ParsedCommand {
+    command: Command;
+    args: Record<string, unknown>;
+}
+
+export interface ResponseCallback {
+    (res: unknown): void;
+}
+
+export interface CategoryMap {
+    [category: string]: Command[];
+}

@@ -1,1 +1,12 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/weather/index.ts
+import { opt } from '../../../../../lib/options';
+import { UnitType } from '../../../../../lib/units/temperature/types';
+
+export default {
+    label: opt(true),
+    unit: opt<UnitType>('imperial'),
+    leftClick: opt(''),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

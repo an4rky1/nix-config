@@ -1,1 +1,14 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/media/components/title/index.tsx
+import { SongName } from './SongName';
+import { SongAuthor } from './SongAuthor';
+import { SongAlbum } from './SongAlbum';
+import { Gtk } from 'astal/gtk4';
+
+export const MediaInfo = (): JSX.Element => {
+    return (
+        <box className={'media-indicator-current-media-info'} halign={Gtk.Align.CENTER} hexpand vertical>
+            <SongName />
+            <SongAuthor />
+            <SongAlbum />
+        </box>
+    );
+};

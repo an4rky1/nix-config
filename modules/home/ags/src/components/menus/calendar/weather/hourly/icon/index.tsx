@@ -1,1 +1,25 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/calendar/weather/hourly/icon/index.tsx
+import { bind } from 'astal';
+import { Gtk } from 'astal/gtk4';
+import WeatherService from '../../../../../../services/weather';
+import { getHourlyWeatherIcon } from '../helpers';
+
+const weatherService = WeatherService.getInstance();
+
+export const HourlyIcon = ({ hoursFromNow }: HourlyIconProps): JSX.Element => {
+    return (
+        <box halign={Gtk.Align.CENTER}>
+            <label
+                className={'hourly-weather-icon txt-icon'}
+                label={bind(weatherService.weatherData).as((weather) => {
+                    const weatherIcon = getHourlyWeatherIcon(weather, hoursFromNow);
+                    return weatherIcon;
+                })}
+                halign={Gtk.Align.CENTER}
+            />
+        </box>
+    );
+};
+
+interface HourlyIconProps {
+    hoursFromNow: number;
+}

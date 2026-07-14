@@ -1,1 +1,26 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/controls/index.tsx
+import { Gtk } from 'astal/gtk4';
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+import { PairButton } from './PairButton';
+import { ConnectButton } from './ConnectButton';
+import { TrustButton } from './TrustButton';
+import { ForgetButton } from './ForgetButton';
+
+export const DeviceControls = ({ device, connectedDevices }: DeviceControlsProps): JSX.Element => {
+    if (!connectedDevices.includes(device.address)) {
+        return <box />;
+    }
+
+    return (
+        <box valign={Gtk.Align.START} className={'bluetooth-controls'}>
+            <PairButton device={device} />
+            <ConnectButton device={device} />
+            <TrustButton device={device} />
+            <ForgetButton device={device} />
+        </box>
+    );
+};
+
+interface DeviceControlsProps {
+    device: AstalBluetooth.Device;
+    connectedDevices: string[];
+}

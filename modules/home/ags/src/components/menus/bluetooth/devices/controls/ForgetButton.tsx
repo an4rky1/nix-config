@@ -1,1 +1,26 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/controls/ForgetButton.tsx
+import { ActionButton } from './ActionButton';
+import AstalBluetooth from 'gi://AstalBluetooth?version=0.1';
+import { forgetBluetoothDevice } from '../helpers';
+import { isPrimaryClick } from '../../../../../lib/events/mouse';
+import { onPrimaryClick } from '../../../../../lib/shared/eventHandlers';
+
+export const ForgetButton = ({ device }: ForgetButtonProps): JSX.Element => {
+    return (
+        <ActionButton
+            name={'delete'}
+            tooltipText={'Forget'}
+            label={'󰆴'}
+            setup={(self) => {
+                onPrimaryClick(self, (_, event) => {
+                    if (isPrimaryClick(event)) {
+                        forgetBluetoothDevice(device);
+                    }
+                });
+            }}
+        />
+    );
+};
+
+interface ForgetButtonProps {
+    device: AstalBluetooth.Device;
+}

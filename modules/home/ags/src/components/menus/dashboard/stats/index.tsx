@@ -1,1 +1,31 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/dashboard/stats/index.tsx
+import { Gtk } from 'astal/gtk4';
+import { CpuStat, GpuStat, RamStat, StorageStat } from './StatBars';
+import { setupDashboardMonitoring } from './helpers';
+import { JSXElement } from '../../../../core/types';
+
+export const Stats = ({ isEnabled }: StatsProps): JSXElement => {
+    if (!isEnabled) {
+        return null;
+    }
+
+    setupDashboardMonitoring();
+
+    return (
+        <box
+            className={'dashboard-card stats-container'}
+            valign={Gtk.Align.FILL}
+            halign={Gtk.Align.FILL}
+            expand
+            vertical
+        >
+            <CpuStat />
+            <RamStat />
+            <GpuStat />
+            <StorageStat />
+        </box>
+    );
+};
+
+interface StatsProps {
+    isEnabled: boolean;
+}

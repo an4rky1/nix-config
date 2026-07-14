@@ -1,1 +1,7 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/icons.ts
+import { opt } from '../../../../../../lib/options';
+import { primaryColors } from '../../../colors/primary';
+
+export default {
+    passive: opt(primaryColors.surface2),
+    active: opt(primaryColors.lavender),
+};

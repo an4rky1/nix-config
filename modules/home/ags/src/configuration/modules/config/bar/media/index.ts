@@ -1,1 +1,13 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/bar/media/index.ts
+import { opt } from '../../../../../lib/options';
+
+export default {
+    format: opt('{artist: - }{title}'),
+    truncation: opt(true),
+    show_label: opt(true),
+    truncation_size: opt(30),
+    show_active_only: opt(false),
+    rightClick: opt(''),
+    middleClick: opt(''),
+    scrollUp: opt(''),
+    scrollDown: opt(''),
+};

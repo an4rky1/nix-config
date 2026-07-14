@@ -1,1 +1,32 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/shared/Option/SettingInput.tsx
+import { Variable } from 'astal';
+import { Inputter } from '../Inputter';
+import { RowProps } from '../../../../lib/options/types';
+
+export const SettingInput = <T extends string | number | boolean | object>({
+    className,
+    isUnsaved,
+    ...props
+}: SettingInputProps<T>): JSX.Element => {
+    return (
+        <Inputter
+            opt={props.opt}
+            fontStyle={props.fontStyle}
+            fontLabel={props.fontLabel}
+            type={props.type}
+            enums={props.enums}
+            disabledBinding={props.disabledBinding}
+            dependencies={props.dependencies}
+            exportData={props.exportData}
+            min={props.min}
+            max={props.max}
+            increment={props.increment}
+            className={className}
+            isUnsaved={isUnsaved}
+        />
+    );
+};
+
+interface SettingInputProps<T> extends RowProps<T> {
+    className?: string;
+    isUnsaved: Variable<boolean>;
+}

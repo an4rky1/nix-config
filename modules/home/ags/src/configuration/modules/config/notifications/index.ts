@@ -1,1 +1,15 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/configuration/modules/config/notifications/index.ts
+import { opt } from '../../../../lib/options';
+import { NotificationAnchor } from '../../../../lib/options/types';
+
+export default {
+    position: opt<NotificationAnchor>('top right'),
+    ignore: opt<string[]>([]),
+    displayedTotal: opt(10),
+    monitor: opt(0),
+    active_monitor: opt(true),
+    showActionsOnHover: opt(false),
+    timeout: opt(7000),
+    autoDismiss: opt(false),
+    cache_actions: opt(true),
+    clearDelay: opt(100),
+};

@@ -1,1 +1,33 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/menus/dashboard/profile/helpers.ts
+import { App } from 'astal/gtk4';
+import powermenu from '../../power/helpers/actions.js';
+import { execAsync } from 'astal';
+import { PowerOptions } from '../../../../lib/options/types.js';
+import options from '../../../../configuration';
+
+const { confirmation, shutdown, logout, sleep, reboot } = options.menus.dashboard.powermenu;
+
+/**
+ * Handles the click event for power options.
+ *
+ * This function executes the appropriate action based on the provided power option.
+ * It hides the dashboard menu and either executes the action directly or shows a confirmation dialog.
+ *
+ * @param action The power option to handle (shutdown, reboot, logout, sleep).
+ */
+export const handleClick = (action: PowerOptions): void => {
+    const actions = {
+        shutdown: shutdown.get(),
+        reboot: reboot.get(),
+        logout: logout.get(),
+        sleep: sleep.get(),
+    };
+    App.get_window('dashboardmenu')?.set_visible(false);
+
+    if (!confirmation.get()) {
+        execAsync(actions[action]).catch((err) =>
+            console.error(`Failed to execute ${action} command. Error: ${err}`),
+        );
+    } else {
+        powermenu.action(action);
+    }
+};

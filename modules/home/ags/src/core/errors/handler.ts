@@ -1,1 +1,16 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/core/errors/handler.ts
+/**
+ * Central error handling utilities
+ */
+
+/**
+ * Handles errors by throwing a new Error with a message
+ * @param error - The error to handle
+ * @throws Throws a new error with the provided message or a default message
+ */
+export function errorHandler(error: unknown): never {
+    if (error instanceof Error) {
+        throw new Error(error.message);
+    }
+
+    throw new Error(String(error));
+}

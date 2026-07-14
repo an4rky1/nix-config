@@ -1,1 +1,12 @@
-/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/services/workspace/types.ts
+export type WorkspaceRule = {
+    workspaceString: string;
+    monitor: string;
+};
+
+export type WorkspaceMonitorMap = {
+    [key: string]: number[];
+};
+
+export type MonitorMap = {
+    [key: number]: string;
+};
