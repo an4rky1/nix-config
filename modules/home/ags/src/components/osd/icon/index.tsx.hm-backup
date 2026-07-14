@@ -1,16 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-import { setupOsdIcon } from './helpers';
-
-export const OSDIcon = (): JSX.Element => {
-    return (
-        <box className={'osd-icon-container'} hexpand>
-            <label
-                className={'osd-icon txt-icon'}
-                halign={Gtk.Align.CENTER}
-                valign={Gtk.Align.CENTER}
-                setup={setupOsdIcon}
-                expand
-            />
-        </box>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/osd/icon/index.tsx.hm-backup

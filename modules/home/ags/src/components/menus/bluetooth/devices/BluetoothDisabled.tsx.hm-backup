@@ -1,15 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-
-export const BluetoothDisabled = (): JSX.Element => {
-    return (
-        <box
-            className={'bluetooth-items'}
-            vertical
-            expand
-            valign={Gtk.Align.CENTER}
-            halign={Gtk.Align.CENTER}
-        >
-            <label className={'bluetooth-disabled dim'} hexpand label={'Bluetooth is disabled'} />
-        </box>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/bluetooth/devices/BluetoothDisabled.tsx.hm-backup

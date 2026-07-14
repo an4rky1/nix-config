@@ -1,9 +1,1 @@
-import { Gtk, astalify } from 'astal/gtk4';
-
-/**
- * MenuItem component - GTK4 doesn't have Gtk.MenuItem.
- * Using Button as a simple clickable item.
- */
-export const MenuItem = astalify(Gtk.Button);
-
-export default MenuItem;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/shared/MenuItem.tsx.hm-backup

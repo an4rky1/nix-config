@@ -1,8 +1,1 @@
-import { EventBox } from 'astal/gtk4/widget';
-import Variable from 'astal/variable';
-
-type GlobalEventBoxes = {
-    [key: string]: EventBox;
-};
-
-export const globalEventBoxes: Variable<GlobalEventBoxes> = Variable({});
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/lib/events/dropdown.ts.hm-backup

@@ -1,1 +1,1 @@
-export type Transition = 'none' | 'crossfade' | 'slide_right' | 'slide_left' | 'slide_up' | 'slide_down';
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/menus/types.ts.hm-backup

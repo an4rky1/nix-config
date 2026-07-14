@@ -1,12 +1,1 @@
-import { Variable } from 'astal';
-
-export interface CpuTempServiceCtor {
-    sensor?: Variable<string>;
-    frequency?: Variable<number>;
-}
-
-export interface SensorInfo {
-    path: string;
-    name: string;
-    type: 'hwmon' | 'thermal';
-}
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/services/system/cputemp/types.ts.hm-backup

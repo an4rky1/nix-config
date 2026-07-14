@@ -1,10 +1,1 @@
-import { Gtk, astalify } from 'astal/gtk4';
-
-/**
- * Menu component - GTK4 uses Gtk.PopoverMenu instead of Gtk.Menu.
- *
- * For now using Box as a simple container.
- */
-export const Menu = astalify(Gtk.Box);
-
-export default Menu;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/shared/Menu.tsx.hm-backup

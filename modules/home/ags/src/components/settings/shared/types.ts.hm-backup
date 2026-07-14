@@ -1,3 +1,1 @@
-export type Config = {
-    [key: string]: string | number | boolean | object;
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/settings/shared/types.ts.hm-backup

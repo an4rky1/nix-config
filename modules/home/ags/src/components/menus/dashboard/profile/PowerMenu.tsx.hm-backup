@@ -1,12 +1,1 @@
-import { LogOut, Reboot, ShutDown, Sleep } from './PowerButtons';
-
-export const PowerMenu = (): JSX.Element => {
-    return (
-        <box className={'power-menu-container dashboard-card'} vertical vexpand>
-            <ShutDown />
-            <Reboot />
-            <LogOut />
-            <Sleep />
-        </box>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/dashboard/profile/PowerMenu.tsx.hm-backup

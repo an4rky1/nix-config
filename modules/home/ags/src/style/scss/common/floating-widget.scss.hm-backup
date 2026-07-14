@@ -1,10 +1,1 @@
-@import "../colors";
-
-@mixin floating-widget {
-    margin: max($spacing, 8px);
-    border: 0.2rem solid $surface0;
-    background-color: $base;
-    color: $primary_fg;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-}
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/style/scss/common/floating-widget.scss.hm-backup

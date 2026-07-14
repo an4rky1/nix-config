@@ -1,11 +1,1 @@
-import { Gtk, astalify, ConstructProps } from 'astal/gtk4';
-
-/**
- * FontButton component that extends Gtk.FontButton.
- *
- * @class FontButton
- * @extends {astalify(Gtk.FontButton)}
- */
-export const FontButton = astalify(Gtk.FontButton);
-
-export default FontButton;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/shared/FontButton.tsx.hm-backup

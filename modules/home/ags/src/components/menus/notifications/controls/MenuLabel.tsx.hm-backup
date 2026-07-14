@@ -1,14 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-
-export const MenuLabel = (): JSX.Element => {
-    return (
-        <box
-            className={'menu-label-container notifications'}
-            halign={Gtk.Align.START}
-            valign={Gtk.Align.CENTER}
-            expand
-        >
-            <label className={'menu-label notifications'} label={'Notifications'} />
-        </box>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/notifications/controls/MenuLabel.tsx.hm-backup

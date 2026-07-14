@@ -1,15 +1,1 @@
-import { opt } from 'src/lib/options';
-
-export default {
-    icon: opt('󱉊'),
-    showIcon: opt(true),
-    format: opt('%I:%M:%S %p %Z'),
-    formatDiffDate: opt('%a %b %d  %I:%M:%S %p %Z'),
-    divider: opt('  '),
-    leftClick: opt('menu:calendar'),
-    rightClick: opt(''),
-    middleClick: opt(''),
-    scrollUp: opt(''),
-    scrollDown: opt(''),
-    tz: opt(['America/New_York', 'Europe/Paris', 'Asia/Tokyo']),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/bar/worldclock/index.ts.hm-backup

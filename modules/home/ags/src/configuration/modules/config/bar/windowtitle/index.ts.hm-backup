@@ -1,16 +1,1 @@
-import { opt } from 'src/lib/options';
-
-export default {
-    custom_title: opt(true),
-    title_map: opt([]),
-    class_name: opt(true),
-    label: opt(true),
-    icon: opt(true),
-    truncation: opt(true),
-    truncation_size: opt(50),
-    leftClick: opt(''),
-    rightClick: opt(''),
-    middleClick: opt(''),
-    scrollUp: opt(''),
-    scrollDown: opt(''),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/bar/windowtitle/index.ts.hm-backup

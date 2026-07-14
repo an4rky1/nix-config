@@ -215,6 +215,4 @@ initializeHotReload();
 
 options.handler(optionsToWatch, themeManager.applyCss.bind(themeManager));
 
-await themeManager.applyCss();
-
 export { themeManager };

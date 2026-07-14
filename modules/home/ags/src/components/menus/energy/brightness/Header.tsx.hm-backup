@@ -1,9 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-
-export const BrightnessHeader = (): JSX.Element => {
-    return (
-        <box className={'menu-label-container'} halign={Gtk.Align.FILL}>
-            <label className={'menu-label'} halign={Gtk.Align.START} label={'Brightness'} hexpand />
-        </box>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/energy/brightness/Header.tsx.hm-backup

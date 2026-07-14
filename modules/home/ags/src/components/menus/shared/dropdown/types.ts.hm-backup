@@ -1,17 +1,1 @@
-import { Astal, Gtk } from 'astal/gtk4';
-import { Binding } from 'astal';
-import { BarLocation } from 'src/lib/options/types';
-
-export interface DropdownMenuProps {
-    name: string;
-    child?: JSX.Element | JSX.Element[] | Binding<JSX.Element | undefined>;
-    layout?: string;
-    transition?: Gtk.RevealerTransitionType | Binding<Gtk.RevealerTransitionType>;
-    exclusivity?: Astal.Exclusivity;
-    fixed?: boolean;
-    onDestroy?: () => void;
-}
-
-export type LocationMap = {
-    [key in BarLocation]: Astal.WindowAnchor;
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/shared/dropdown/types.ts.hm-backup

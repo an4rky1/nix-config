@@ -1,3 +1,1 @@
-export type GenericFunction<Value, Parameters extends unknown[]> = (
-    ...args: Parameters
-) => Promise<Value> | Value;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/lib/poller/types.ts.hm-backup

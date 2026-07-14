@@ -13,7 +13,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "astal": "/usr/share/astal/gjs"
+        "astal": "file:./node_modules/astal-local"
     },
     "devDependencies": {
         "@types/node": "^22.15.17",
@@ -27,5 +27,6 @@
         "prettier": "^3.3.3",
         "tsconfig-paths": "^4.2.0",
         "typescript": "5.7.3"
-    }
+    },
+    "type": "commonjs"
 }

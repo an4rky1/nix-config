@@ -1,13 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-
-export const NotFoundButton = ({ type }: { type: string }): JSX.Element => {
-    return (
-        <button className={`menu-unfound-button ${type}`} sensitive={false}>
-            <box>
-                <box halign={Gtk.Align.START}>
-                    <label className={`menu-button-name ${type}`} label={`No ${type} devices found...`} />
-                </box>
-            </box>
-        </button>
-    );
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/audio/available/NotFoundButton.tsx.hm-backup

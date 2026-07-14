@@ -1,11 +1,1 @@
-import bar from './bar';
-import general from './general';
-import notification from './notification';
-import osd from './osd';
-
-export default {
-    ...general,
-    notification,
-    osd,
-    bar,
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/theme/index.ts.hm-backup

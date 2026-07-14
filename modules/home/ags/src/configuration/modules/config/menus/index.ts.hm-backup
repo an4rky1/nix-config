@@ -1,17 +1,1 @@
-import { opt } from 'src/lib/options';
-import clock from './clock';
-import dashboard from './dashboard';
-import media from './media';
-import power from './power';
-import volume from './volume';
-import { Transition } from './types';
-
-export default {
-    transition: opt<Transition>('crossfade'),
-    transitionTime: opt(200),
-    media,
-    volume,
-    power,
-    dashboard,
-    clock,
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/menus/index.ts.hm-backup

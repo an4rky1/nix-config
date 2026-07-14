@@ -1,1 +1,0 @@
-/nix/store/8nmqc7cysknmzkzgdsawm6skjarrd313-home-manager-files/.config/ags/src/services/wallpaper/index.ts

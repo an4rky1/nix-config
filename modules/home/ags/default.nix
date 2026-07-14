@@ -161,13 +161,13 @@ in
   ];
 
   xdg.configFile."ags" = {
-    source = pkgs.runCommandLocal "ags-config" { } ''
+    source = pkgs.runCommandLocal "ags-config" { inherit astalGjs; } ''
       mkdir -p $out
-      cp -r ${./.}/. $out/
+      tar -C ${./.} -cf - . | tar -C $out -xf -
       chmod -R +w $out
       rm -f $out/default.nix
       mkdir -p $out/node_modules
-      ln -sf ${astalGjs}/share/astal/gjs $out/node_modules/astal
+      ln -s ${astalGjs}/share/astal/gjs $out/node_modules/astal
     '';
     recursive = true;
     force = true;

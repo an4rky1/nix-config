@@ -1,12 +1,1 @@
-import { opt } from 'src/lib/options';
-
-export default {
-    truncation: opt(true),
-    showWifiInfo: opt(false),
-    truncation_size: opt(7),
-    label: opt(true),
-    rightClick: opt(''),
-    middleClick: opt(''),
-    scrollUp: opt(''),
-    scrollDown: opt(''),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/bar/network/index.ts.hm-backup

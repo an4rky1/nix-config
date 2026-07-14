@@ -1,1 +1,1 @@
-/nix/store/8nmqc7cysknmzkzgdsawm6skjarrd313-home-manager-files/.config/ags/src/components/menus/network/wifi/Controls/WifiSwitch.tsx
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/network/wifi/Controls/WifiSwitch.tsx

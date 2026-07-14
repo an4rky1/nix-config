@@ -1,12 +1,1 @@
-import { astalify } from 'astal/gtk4';
-import Astal from 'gi://Astal?version=4.0';
-
-/**
- * Window component that extends Astal.Window.
- *
- * @class RegularWindow
- * @extends {astalify(Astal.Window)}
- */
-export const RegularWindow = astalify(Astal.Window);
-
-export default RegularWindow;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/shared/RegularWindow.tsx.hm-backup

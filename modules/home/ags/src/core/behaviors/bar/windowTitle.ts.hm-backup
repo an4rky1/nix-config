@@ -1,15 +1,1 @@
-import options from 'src/configuration';
-
-const { label, icon } = options.bar.windowtitle;
-
-label.subscribe(() => {
-    if (!label.get() && !icon.get()) {
-        icon.set(true);
-    }
-});
-
-icon.subscribe(() => {
-    if (!label.get() && !icon.get()) {
-        label.set(true);
-    }
-});
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/core/behaviors/bar/windowTitle.ts.hm-backup

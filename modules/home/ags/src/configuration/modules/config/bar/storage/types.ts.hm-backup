@@ -1,3 +1,1 @@
-import { SizeUnit } from 'src/lib/units/size/types';
-
-export type StorageUnit = SizeUnit | 'auto';
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/config/bar/storage/types.ts.hm-backup

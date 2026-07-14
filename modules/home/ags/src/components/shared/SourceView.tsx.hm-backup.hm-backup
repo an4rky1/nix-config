@@ -1,0 +1,9 @@
+import { astalify } from 'astal/gtk4';
+import GtkSource from 'gi://GtkSource?version=5';
+
+/**
+ * SourceView component that extends GtkSource.View.
+ */
+export const SourceView = astalify(GtkSource.View);
+
+export default SourceView;

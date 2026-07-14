@@ -1,8 +1,1 @@
-import { Variable } from 'astal';
-
-export type ShortcutVariable = {
-    tooltip: Variable<string>;
-    command: Variable<string>;
-    icon: Variable<string>;
-    configurable?: true;
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/dashboard/shortcuts/types.ts.hm-backup

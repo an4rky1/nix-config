@@ -1,9 +1,1 @@
-import { astalify } from 'astal/gtk4';
-import GtkSource from 'gi://GtkSource?version=5';
-
-/**
- * SourceView component that extends GtkSource.View.
- */
-export const SourceView = astalify(GtkSource.View);
-
-export default SourceView;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/shared/SourceView.tsx.hm-backup

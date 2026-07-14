@@ -1,15 +1,1 @@
-export type WorkspaceIcons = {
-    [key: string]: string;
-};
-
-export type WorkspaceIconsColored = {
-    [key: string]: {
-        color: string;
-        icon: string;
-    };
-};
-export type ApplicationIcons = {
-    [key: string]: string;
-};
-
-export type WorkspaceIconMap = WorkspaceIcons | WorkspaceIconsColored;
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/bar/modules/workspaces/types.ts.hm-backup

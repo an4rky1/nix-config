@@ -1,18 +1,1 @@
-import { Variable } from 'astal';
-import { GenericResourceData } from '../types';
-
-export interface StorageServiceCtor {
-    pathsToMonitor: Variable<string[]>;
-    frequency?: Variable<number>;
-    round?: Variable<boolean>;
-}
-
-export interface DriveStorageData extends GenericResourceData {
-    path: string;
-    name: string;
-}
-
-export interface MultiDriveStorageData {
-    total: GenericResourceData;
-    drives: DriveStorageData[];
-}
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/services/system/storage/types.ts.hm-backup

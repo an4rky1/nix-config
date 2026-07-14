@@ -1,11 +1,1 @@
-import { BarLocation } from 'src/lib/options/types';
-
-export type EventBoxPaddingProps = {
-    className: string;
-    windowName: string;
-};
-
-export type BarEventMarginsProps = {
-    windowName: string;
-    location?: BarLocation;
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/shared/dropdown/helpers/types.ts.hm-backup

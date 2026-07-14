@@ -1,6 +1,1 @@
-import { opt } from 'src/lib/options';
-
-export default {
-    radius: opt('0.7em'),
-    width: opt('0.25em'),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/scroller.ts.hm-backup

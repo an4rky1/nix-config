@@ -1,5 +1,1 @@
-import { Variable } from 'astal';
-
-export interface RamServiceCtor {
-    frequency?: Variable<number>;
-}
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/services/system/ramUsage/types.ts.hm-backup

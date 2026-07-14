@@ -1,14 +1,1 @@
-import { Gtk } from 'astal/gtk4';
-import { UserProfile } from './Profile';
-import { PowerMenu } from './PowerMenu';
-
-const Profile = (): JSX.Element => {
-    return (
-        <box className={'profiles-container'} halign={Gtk.Align.FILL} hexpand>
-            <UserProfile />
-            <PowerMenu />
-        </box>
-    );
-};
-
-export { Profile };
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/menus/dashboard/profile/index.tsx.hm-backup

@@ -1,8 +1,1 @@
-import { opt } from 'src/lib/options';
-import { primaryColors } from '../../../colors/primary';
-import { tertiaryColors } from '../../../colors/tertiary';
-
-export default {
-    background: opt(primaryColors.surface1),
-    active: opt(tertiaryColors.lavender),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/checkRadioButton.ts.hm-backup

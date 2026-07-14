@@ -1,11 +1,1 @@
-import { opt } from 'src/lib/options';
-import { primaryColors } from '../../../colors/primary';
-import { secondaryColors } from '../../../colors/secondary';
-
-export default {
-    scaling: opt(100),
-    radius: opt('0.4em'),
-    text: opt(primaryColors.lavender),
-    background: opt(secondaryColors.mantle),
-    border: opt(secondaryColors.mantle),
-};
+/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/configuration/modules/theme/bar/menus/components/popover.ts.hm-backup
