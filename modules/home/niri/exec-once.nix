@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.niri.settings.spawn-at-startup = [
     {
@@ -41,6 +41,14 @@
       ];
     }
 
-    { sh = "cd ~/.config/ags && ags run app.ts --gtk 4"; }
+    {
+      argv = [
+        "ags"
+        "run"
+        "${config.xdg.configFile.ags.target}/app.ts"
+        "--gtk"
+        "4"
+      ];
+    }
   ];
 }

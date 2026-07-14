@@ -232,21 +232,6 @@ in
     ];
   };
 
-  systemd.user.services.hyprpanel = {
-    Unit = {
-      Description = "HyprPanel – AGS panel";
-      After = [ "graphical-session.target" ];
-    };
-    Service = {
-      ExecStart = "${pkgs.ags}/bin/ags run ${config.xdg.configFile.ags.target}/app.ts --gtk 4";
-      Restart = "on-failure";
-      RestartSec = 3;
-    };
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
-  };
-
   home.packages = with pkgs; [
     astalInputs.notifd
     gtksourceview5
