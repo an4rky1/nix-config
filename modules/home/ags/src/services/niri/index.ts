@@ -1,15 +1,22 @@
-import GObject, { GLib, property, register } from 'astal/gobject';
+import GObject, { GLib } from 'astal/gobject';
 import { execAsync, exec } from 'astal/process';
 
 const POLL_INTERVAL = 500;
 
-@register({ GTypeName: 'NiriClient' })
 export class Client extends GObject.Object {
-    @property(String)
+    static {
+        GObject.registerClass({
+            GTypeName: 'NiriClient',
+            Properties: {
+                'class': GObject.ParamSpec.jsobject('class', '', '', GObject.ParamFlags.READABLE),
+                'title': GObject.ParamSpec.jsobject('title', '', '', GObject.ParamFlags.READABLE),
+                'fullscreen': GObject.ParamSpec.jsobject('fullscreen', '', '', GObject.ParamFlags.READABLE),
+            },
+        }, this);
+    }
+
     declare public class: string;
-    @property(String)
     declare public title: string;
-    @property(Boolean)
     declare public fullscreen: boolean;
 
     public workspace: Workspace | null = null;
@@ -23,21 +30,28 @@ export class Client extends GObject.Object {
     }
 }
 
-@register({ GTypeName: 'NiriMonitor' })
 export class Monitor extends GObject.Object {
-    @property(Number)
+    static {
+        GObject.registerClass({
+            GTypeName: 'NiriMonitor',
+            Properties: {
+                'id': GObject.ParamSpec.jsobject('id', '', '', GObject.ParamFlags.READABLE),
+                'name': GObject.ParamSpec.jsobject('name', '', '', GObject.ParamFlags.READABLE),
+                'model': GObject.ParamSpec.jsobject('model', '', '', GObject.ParamFlags.READABLE),
+                'width': GObject.ParamSpec.jsobject('width', '', '', GObject.ParamFlags.READABLE),
+                'height': GObject.ParamSpec.jsobject('height', '', '', GObject.ParamFlags.READABLE),
+                'scale': GObject.ParamSpec.jsobject('scale', '', '', GObject.ParamFlags.READABLE),
+                'transform': GObject.ParamSpec.jsobject('transform', '', '', GObject.ParamFlags.READABLE),
+            },
+        }, this);
+    }
+
     declare public id: number;
-    @property(String)
     declare public name: string;
-    @property(String)
     declare public model: string;
-    @property(Number)
     declare public width: number;
-    @property(Number)
     declare public height: number;
-    @property(Number)
     declare public scale: number;
-    @property(Number)
     declare public transform: number;
 
     public activeWorkspace: Workspace | null = null;
@@ -66,13 +80,20 @@ export class Monitor extends GObject.Object {
     }
 }
 
-@register({ GTypeName: 'NiriWorkspace' })
 export class Workspace extends GObject.Object {
-    @property(Number)
+    static {
+        GObject.registerClass({
+            GTypeName: 'NiriWorkspace',
+            Properties: {
+                'id': GObject.ParamSpec.jsobject('id', '', '', GObject.ParamFlags.READABLE),
+                'name': GObject.ParamSpec.jsobject('name', '', '', GObject.ParamFlags.READABLE),
+                'hasFullscreen': GObject.ParamSpec.jsobject('hasFullscreen', '', '', GObject.ParamFlags.READABLE),
+            },
+        }, this);
+    }
+
     declare public id: number;
-    @property(String)
     declare public name: string;
-    @property(Boolean)
     declare public hasFullscreen: boolean;
 
     public monitor: Monitor | null = null;
@@ -94,26 +115,6 @@ export class Workspace extends GObject.Object {
     }
 }
 
-@register({
-    GTypeName: 'NiriService',
-    Properties: {
-        workspaces: GObject.ParamSpec.jsobject('workspaces', '', '', GObject.ParamFlags.READABLE),
-        monitors: GObject.ParamSpec.jsobject('monitors', '', '', GObject.ParamFlags.READABLE),
-        clients: GObject.ParamSpec.jsobject('clients', '', '', GObject.ParamFlags.READABLE),
-        'focused-workspace': GObject.ParamSpec.jsobject('focused-workspace', '', '', GObject.ParamFlags.READABLE),
-        'focused-monitor': GObject.ParamSpec.jsobject('focused-monitor', '', '', GObject.ParamFlags.READABLE),
-        'focused-client': GObject.ParamSpec.jsobject('focused-client', '', '', GObject.ParamFlags.READABLE),
-    },
-    Signals: {
-        'config-reloaded': {},
-        'monitor-added': {},
-        'monitor-removed': {},
-        'client-added': {},
-        'client-moved': {},
-        'client-removed': {},
-        'submap': {},
-    },
-})
 export class NiriService extends GObject.Object {
     static _instance: NiriService | null = null;
 
@@ -332,6 +333,29 @@ export class NiriService extends GObject.Object {
                 console.error('Niri poll error:', error);
             }
         }
+    }
+
+    static {
+        GObject.registerClass({
+            GTypeName: 'NiriService',
+            Properties: {
+                'workspaces': GObject.ParamSpec.jsobject('workspaces', '', '', GObject.ParamFlags.READABLE),
+                'monitors': GObject.ParamSpec.jsobject('monitors', '', '', GObject.ParamFlags.READABLE),
+                'clients': GObject.ParamSpec.jsobject('clients', '', '', GObject.ParamFlags.READABLE),
+                'focused-workspace': GObject.ParamSpec.jsobject('focused-workspace', '', '', GObject.ParamFlags.READABLE),
+                'focused-monitor': GObject.ParamSpec.jsobject('focused-monitor', '', '', GObject.ParamFlags.READABLE),
+                'focused-client': GObject.ParamSpec.jsobject('focused-client', '', '', GObject.ParamFlags.READABLE),
+            },
+            Signals: {
+                'config-reloaded': {},
+                'monitor-added': {},
+                'monitor-removed': {},
+                'client-added': {},
+                'client-moved': {},
+                'client-removed': {},
+                'submap': {},
+            },
+        }, this);
     }
 }
 

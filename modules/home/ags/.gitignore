@@ -11,3 +11,4 @@ pnpm-lock.yaml
 
 *.hm-backup
 *.hm-backup.hm-backup
+src.backup/

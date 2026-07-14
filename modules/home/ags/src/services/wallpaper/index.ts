@@ -1,27 +1,31 @@
-import GObject, { GLib, property, register, signal } from 'astal/gobject';
+import GObject, { GLib } from 'astal/gobject';
 import { monitorFile } from 'astal/file';
 import AstalHyprland from '../niri';
 import options from '../../configuration';
 import { SystemUtilities } from '../../core/system/SystemUtilities';
-import { SwwwDaemon } from './SwwwDaemon';
+import { AwwwDaemon } from './SwwwDaemon';
 
 const hyprlandService = AstalHyprland.get_default();
 const WP = `${GLib.get_home_dir()}/.config/background`;
 
-/**
- * Service for managing desktop wallpaper using swww daemon
- */
-@register({ GTypeName: 'Wallpaper' })
 export class WallpaperService extends GObject.Object {
-    @property(String)
-    declare public wallpaper: string;
+    static {
+        GObject.registerClass({
+            GTypeName: 'Wallpaper',
+            Properties: {
+                'wallpaper': GObject.ParamSpec.jsobject('wallpaper', '', '', GObject.ParamFlags.READABLE),
+            },
+            Signals: {
+                'changed': { param_types: [GObject.TYPE_BOOLEAN] },
+            },
+        }, this);
+    }
 
-    @signal(Boolean)
-    declare public changed: (event: boolean) => void;
+    declare public wallpaper: string;
 
     private static _instance: WallpaperService;
     private _blockMonitor = false;
-    private _daemon = new SwwwDaemon();
+    private _daemon = new AwwwDaemon();
 
     constructor() {
         super();
@@ -54,11 +58,6 @@ export class WallpaperService extends GObject.Object {
         }
     }
 
-    /**
-     * Gets the singleton instance of WallpaperService
-     *
-     * @returns The WallpaperService instance
-     */
     public static getInstance(): WallpaperService {
         if (this._instance === undefined) {
             this._instance = new WallpaperService();
@@ -67,37 +66,24 @@ export class WallpaperService extends GObject.Object {
         return this._instance;
     }
 
-    /**
-     * Sets a new wallpaper from the specified file path
-     *
-     * @param path - Path to the wallpaper image file
-     */
     public setWallpaper(path: string): void {
         this._setWallpaper(path);
     }
 
-    /**
-     * Checks if the wallpaper service is currently running
-     *
-     * @returns Whether swww daemon is active
-     */
     public isRunning(): boolean {
         return this._daemon.isRunning;
     }
 
-    /**
-     * Applies the wallpaper using swww with a transition effect from cursor position
-     */
     private _wallpaper(): void {
         if (!this._daemon.isRunning) {
-            console.warn('Cannot set wallpaper: swww-daemon is not running');
+            console.warn('Cannot set wallpaper: awww-daemon is not running');
             return;
         }
 
         try {
             const cursorPosition = hyprlandService.message('cursorpos');
             const transitionCmd = [
-                'swww',
+                'awww',
                 'img',
                 '--invert-y',
                 '--transition-type',
@@ -124,11 +110,6 @@ export class WallpaperService extends GObject.Object {
         }
     }
 
-    /**
-     * Copies wallpaper to config location and applies it
-     *
-     * @param path - Path to the wallpaper image file
-     */
     private async _setWallpaper(path: string): Promise<void> {
         this._blockMonitor = true;
 

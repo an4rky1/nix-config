@@ -13,6 +13,8 @@ let
 
             sed -i 's/return !Object.hasOwn(func, "prototype")/return func != null \&\& !Object.hasOwn(func, "prototype")/' src/_astal.ts
 
+            sed -i 's/children = children.filter(Boolean)/children = children.filter((child) => child !== null \&\& child !== undefined)/' src/_astal.ts
+
             cat > src/gtk4/Icon.tsx << 'EOF'
       import Gtk from "gi://Gtk?version=4.0"
       import GObject from "gi://GObject?version=2.0"
@@ -236,7 +238,7 @@ in
     astalInputs.notifd
     gtksourceview5
     libgtop
-    swww
+    awww
   ];
 
   xdg.configFile."ags" = {
