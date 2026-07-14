@@ -21,7 +21,7 @@
     ./micro.nix # nano replacement
     ./nemo.nix # file manager
     ./noctalia # desktop environment
-    ./nvim # neovim editor
+    ./nvim/nvim.nix # neovim editor
     ./obsidian.nix
     ./p10k/p10k.nix
     ./packages # other packages
