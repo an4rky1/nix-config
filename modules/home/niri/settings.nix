@@ -24,18 +24,12 @@
       gaps = 8;
 
       focus-ring = {
-        enable = true;
-        width = 2;
-        active = {
-          color = "#98971A";
-        };
-        inactive = {
-          color = "#00000000";
-        };
+        enable = false;
       };
 
       border = {
         enable = true;
+        width = 2;
         active = {
           color = "#98971A";
         };
