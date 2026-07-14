@@ -42,7 +42,6 @@
         inactive = {
           color = "#444444";
         };
-        radius = 12;
       };
 
       shadow = {
