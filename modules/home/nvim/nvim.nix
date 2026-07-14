@@ -10,7 +10,7 @@
     vimAlias = true;
     viAlias = true;
 
-    extraLuaConfig = ''
+    initLua = ''
       require("config.lazy")
     '';
   };
