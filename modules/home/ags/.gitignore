@@ -8,3 +8,6 @@ prepare
 .direnv/
 
 pnpm-lock.yaml
+
+*.hm-backup
+*.hm-backup.hm-backup

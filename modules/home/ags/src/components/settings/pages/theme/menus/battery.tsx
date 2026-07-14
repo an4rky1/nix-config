@@ -1,1 +1,1 @@
-/nix/store/fmzg4q65wchqwah7v54nhx8xaz24q3l5-home-manager-files/.config/ags/src/components/settings/pages/theme/menus/battery.tsx
+/nix/store/d2qrn6rmj0dmp3yx00am3cc9pzpks6cq-home-manager-files/.config/ags/src/components/settings/pages/theme/menus/battery.tsx

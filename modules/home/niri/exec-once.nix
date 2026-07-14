@@ -41,6 +41,6 @@
       ];
     }
 
-    { sh = "cd ~/.config/ags && ags run app.ts --gtk 4 --define DATADIR=$HOME/.config/ags"; }
+    { sh = "cd ~/.config/ags && ags run app.ts --gtk 4"; }
   ];
 }

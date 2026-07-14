@@ -1,13 +1,19 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
   astalGjs = pkgs.astal.gjs.overrideAttrs (old: {
     postPatch = (old.postPatch or "") + ''
-      sed -i '/await suppress(import("gi:\/\/AstalHyprland"),/,/^})$/d' src/overrides.ts
+            sed -i '/await suppress(import("gi:\/\/AstalHyprland"),/,/^})$/d' src/overrides.ts
 
-      # Fix isArrowFunction to handle undefined values (GJS compatibility)
-      sed -i 's/return !Object.hasOwn(func, "prototype")/return func != null \&\& !Object.hasOwn(func, "prototype")/' src/_astal.ts
+            sed -i 's/^await import/import/' src/gtk4/app.ts
 
-      cat > src/gtk4/Icon.tsx << 'EOF'
+            sed -i 's/return !Object.hasOwn(func, "prototype")/return func != null \&\& !Object.hasOwn(func, "prototype")/' src/_astal.ts
+
+            cat > src/gtk4/Icon.tsx << 'EOF'
       import Gtk from "gi://Gtk?version=4.0"
       import GObject from "gi://GObject?version=2.0"
 
@@ -46,35 +52,40 @@ let
       }
       EOF
 
-      cat > src/gtk4/EventBox.tsx << 'EOF'
+            cat > src/gtk4/EventBox.tsx << 'EOF'
       import Gtk from "gi://Gtk?version=4.0"
       import GObject from "gi://GObject?version=2.0"
       import Gdk from "gi://Gdk?version=4.0"
+      import astalify, { type ConstructProps } from "./astalify.js"
 
-      export type EventBoxProps = Record<string, any>
+      function filter(children: any[]) {
+          return children.flat(Infinity).map(ch => ch instanceof Gtk.Widget
+              ? ch
+              : new Gtk.Label({ visible: true, label: String(ch) }))
+      }
 
-      export class EventBox extends Gtk.Box {
+      class EventBoxClass extends Gtk.Box {
         static {
           GObject.registerClass({
             GTypeName: "EventBox",
             Signals: {
-              "button-press-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
-              "button-release-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
-              "scroll-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
-              "enter-notify-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
-              "leave-notify-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
-              "motion-notify-event": { param_types: [GObject.TYPE_OBJECT, GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "button-press-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "button-release-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "scroll-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "enter-notify-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "leave-notify-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "motion-notify-event": { param_types: [GObject.TYPE_OBJECT], return_type: GObject.TYPE_BOOLEAN },
+              "hover": { param_types: [], return_type: GObject.TYPE_BOOLEAN },
+              "hover-lost": { param_types: [], return_type: GObject.TYPE_BOOLEAN },
             },
           }, this)
         }
 
-        constructor(props?: EventBoxProps) {
-          const { setup, child, children, ...rest } = props || {}
-          super(rest as any)
+        constructor() {
+          super()
           const controller = new Gtk.EventControllerLegacy()
           controller.connect("event", (_: Gtk.EventController, event: Gdk.Event) => {
-            const [success, eventType] = event.get_event_type()
-            if (!success) return false
+            const eventType = Gdk.Event.get_event_type(event)
 
             let signalName: string | null = null
             switch (eventType) {
@@ -90,9 +101,11 @@ let
                 signalName = "scroll-event"
                 break
               case Gdk.EventType.ENTER_NOTIFY:
+                this.emit("hover")
                 signalName = "enter-notify-event"
                 break
               case Gdk.EventType.LEAVE_NOTIFY:
+                this.emit("hover-lost")
                 signalName = "leave-notify-event"
                 break
               case Gdk.EventType.MOTION_NOTIFY:
@@ -101,28 +114,93 @@ let
             }
 
             if (signalName) {
-              return this.emit(signalName, this, event)
+              return this.emit(signalName, this)
             }
 
             return false
           })
           this.add_controller(controller)
-          if (child) this.append(child)
-          if (children) {
-            for (const c of Array.isArray(children) ? children : [children]) {
-              if (c) this.append(c)
-            }
-          }
-          if (setup) setup(this)
+        }
+
+        get_child() {
+          return this.get_first_child()
         }
       }
+
+      export type EventBoxProps = ConstructProps<EventBoxClass, Gtk.Box.ConstructorProps>
+
+      export const EventBox = astalify(EventBoxClass, {
+          getChildren(self) {
+              const children: Array<Gtk.Widget> = []
+              let ch = self.get_first_child()
+              while (ch !== null) {
+                  children.push(ch)
+                  ch = ch.get_next_sibling()
+              }
+              return children
+          },
+          setChildren(self, children) {
+              for (const child of filter(children)) {
+                  self.append(child)
+              }
+          },
+      })
       EOF
 
-      sed -i 's/import \* as Widget from "\.\/widget\.js"/import { Icon } from ".\/Icon"\nimport { EventBox } from ".\/EventBox"\nimport * as Widget from ".\/widget.js"/' src/gtk4/jsx-runtime.ts
+            sed -i 's/export \* as Widget from "\.\/widget\.js"/export { Icon } from ".\/Icon"\nexport { EventBox } from ".\/EventBox"\nexport * as Widget from ".\/widget.js"/' src/gtk4/index.ts
 
-      sed -i 's/popover: Widget.Popover,/popover: Widget.Popover,\n    eventbox: EventBox,/' src/gtk4/jsx-runtime.ts
+            cat >> src/gtk4/index.ts << 'EOF'
 
-      sed -i 's/popover: Widget.PopoverProps/popover: Widget.PopoverProps\n            eventbox: Widget.EventBoxProps/' src/gtk4/jsx-runtime.ts
+      export { GLib } from "gi://GLib?version=2.0"
+      EOF
+
+            sed -i 's/popover: Widget.Popover,/popover: Widget.Popover,\n    icon: Icon,\n    eventbox: EventBox,/' src/gtk4/jsx-runtime.ts
+
+            sed -i 's/popover: Widget.PopoverProps/popover: Widget.PopoverProps\n            icon: any\n            eventbox: Widget.EventBoxProps/' src/gtk4/jsx-runtime.ts
+
+            cat > meson.build << 'EOF'
+      project('astal-gjs')
+
+      dest = get_option('prefix') / get_option('datadir') / 'astal' / 'gjs'
+
+      dependency('astal-io-0.1')
+
+      gtk3 = dependency('astal-3.0', required: false)
+      gtk4 = dependency('astal-4-4.0', required: false)
+
+      if (not gtk3.found() and not gtk4.found())
+        error('Neither astal-3.0 nor astal-4.0 was found.')
+      endif
+
+      install_data(
+        [
+          'src/_app.ts',
+          'src/_astal.ts',
+          'src/binding.ts',
+          'src/file.ts',
+          'src/gobject.ts',
+          'src/index.ts',
+          'src/overrides.ts',
+          'src/process.ts',
+          'src/time.ts',
+          'src/variable.ts',
+          'src/package.json',
+        ],
+        install_dir: dest,
+      )
+
+      install_subdir('src/gtk3', install_dir: dest)
+      install_subdir('src/gtk4', install_dir: dest)
+
+      import('pkgconfig').generate(
+        description: 'Astal GJS pacakge',
+        name: meson.project_name(),
+        install_dir: get_option('libdir') / 'pkgconfig',
+        variables: {
+          'srcdir': dest,
+        },
+      )
+      EOF
     '';
   });
   astalInputs = inputs.astal.packages.${pkgs.system};
@@ -154,6 +232,21 @@ in
     ];
   };
 
+  systemd.user.services.hyprpanel = {
+    Unit = {
+      Description = "HyprPanel – AGS panel";
+      After = [ "graphical-session.target" ];
+    };
+    Service = {
+      ExecStart = "${pkgs.ags}/bin/ags run ${config.xdg.configFile.ags.target}/app.ts --gtk 4";
+      Restart = "on-failure";
+      RestartSec = 3;
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
+
   home.packages = with pkgs; [
     astalInputs.notifd
     gtksourceview5
@@ -167,6 +260,7 @@ in
       chmod -R +w $out
       rm -f $out/default.nix
       mkdir -p $out/node_modules
+      rm -rf $out/node_modules/astal
       ln -s ${astalGjs}/share/astal/gjs $out/node_modules/astal
     '';
     recursive = true;

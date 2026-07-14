@@ -16,6 +16,9 @@
         "baseUrl": ".",
         "skipLibCheck": true,
         "types": [],
+        "paths": {
+            "src/*": ["./src/*"]
+        },
         "experimentalDecorators": true,
         "jsx": "react-jsx",
         "jsxImportSource": "astal/gtk4"
