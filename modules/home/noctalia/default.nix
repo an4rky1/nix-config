@@ -10,4 +10,9 @@ in
     ./dock.nix
     ./widgets.nix
   ];
+
+  programs.noctalia = {
+    enable = true;
+    package = noctaliaPkgs.default;
+  };
 }
