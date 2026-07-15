@@ -22,6 +22,7 @@
       "nvim"
     ];
     "Mod+B".action.spawn = [ "zen-beta" ];
+    "Mod+Shift+B".action."spawn-sh" = "zen-beta --private-window";
     "Mod+D".action."spawn-sh" = "noctalia msg panel-toggle launcher";
     "Mod+Home".action."spawn-sh" = "noctalia msg panel-toggle control-center";
     "Mod+Q".action."close-window" = { };
@@ -37,6 +38,8 @@
     "Mod+P".action."switch-layout" = "next";
     "Mod+X".action."toggle-column-tabbed-display" = { };
     "Mod+Z".action."spawn-sh" = "run-or-focus --terminal 'zellij' 'zellij'";
+    "Mod+E".action."spawn-sh" = "run-or-focus --terminal 'yazi' 'yazi'";
+    "Mod+A".action."spawn-sh" = "run-or-focus --terminal 'btm' 'btm'";
     "Mod+W".action."spawn-sh" = "run-or-focus 'Telegram' 'Telegram'";
     "Mod+R".action."spawn-sh" = "run-or-focus 'nemo' 'nemo'";
     "Mod+O".action."spawn-sh" = "run-or-focus 'Obsidian' 'obsidian'";
@@ -47,7 +50,6 @@
 
     "Ctrl+Shift+Escape".action.spawn = [ "missioncenter" ];
     "Mod+Equal".action.spawn = [ "woomer" ];
-    "Mod+Ctrl+B".action."spawn-sh" = "run-or-focus 'bottom' 'ghostty --title=btm -e btm'";
 
     "Print".action."spawn-sh" = "screenshot --copy";
     "Mod+S".action."spawn-sh" = "screenshot --save";
@@ -127,9 +129,14 @@
       "playerctl"
       "stop"
     ];
+    "Mod+Next".action."spawn-sh" = "noctalia msg media next";
+    "Mod+Prior".action."spawn-sh" = "noctalia msg media previous";
 
-    "Mod+V".action."spawn-sh" = "cliphist list | fzf | cliphist decode | wl-copy";
+    "Mod+V".action."spawn-sh" = "noctalia msg panel-toggle clipboard";
 
+    "Alt+Space".action."spawn-sh" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+    "Alt+Prior".action."spawn-sh" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+ --limit 100%";
+    "Alt+Next".action."spawn-sh" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-";
     "XF86AudioMute" = {
       "allow-when-locked" = true;
       action."spawn-sh" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";

@@ -11,22 +11,22 @@
       name = "";
     };
     "4" = {
-      name = "Chat";
+      name = "";
     };
     "5" = {
-      name = "Music";
+      name = "";
     };
     "6" = {
-      name = "Files";
+      name = "";
     };
     "7" = {
-      name = "Notes";
+      name = "";
     };
     "8" = {
-      name = "";
+      name = "";
     };
     "9" = {
-      name = "Browser 2";
+      name = "";
     };
   };
 }
