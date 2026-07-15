@@ -2,13 +2,13 @@
 {
   programs.niri.settings.workspaces = {
     "1" = {
-      name = "Terminal";
+      name = "󰊯";
     };
     "2" = {
-      name = "Browser";
+      name = "";
     };
     "3" = {
-      name = "Editor";
+      name = "";
     };
     "4" = {
       name = "Chat";
@@ -23,13 +23,10 @@
       name = "Notes";
     };
     "8" = {
-      name = "Terminal 2";
+      name = "";
     };
     "9" = {
       name = "Browser 2";
-    };
-    "10" = {
-      name = "Scratch";
     };
   };
 }

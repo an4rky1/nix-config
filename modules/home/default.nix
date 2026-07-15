@@ -30,8 +30,9 @@
     ./../../scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
     ./spicetify.nix # spotify client
-    ./superfile/superfile.nix # terminal file manager
     ./vscodium # vscode fork
+    ./yazi # terminal file manager
+    ./zellij # terminal multiplexer
     ./xdg-mimes.nix # xdg config
     ./zsh # shell
   ];

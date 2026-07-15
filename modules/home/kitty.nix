@@ -18,12 +18,24 @@
     '';
 
     settings = {
+      copy_on_select = "clipboard";
+      strip_trailing_spaces = "smart"; # или "always"
       confirm_os_window_close = 0;
       background_opacity = "0.66";
       scrollback_lines = 10000;
       enable_audio_bell = false;
       mouse_hide_wait = 60;
       window_padding_width = if (host == "laptop") then 5 else 10;
+
+      cursor_shape = "block";
+
+      # Мигание: быстрое и бесконечное
+      cursor_blink_interval = 0.4;
+      cursor_stop_blinking_after = 0; # 0 = никогда не останавливать
+
+      # Цвет курсора (опционально)
+      cursor = "#FBF1C7";
+      cursor_text_color = "#282828";
 
       ## Tabs
       tab_title_template = "{index}";

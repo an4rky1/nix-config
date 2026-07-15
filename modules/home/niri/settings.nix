@@ -8,6 +8,7 @@
           options = "grp:alt_shift_toggle,caps:none";
         };
         repeat-delay = 300;
+        repeat-rate = 50;
         numlock = true;
       };
 
@@ -23,32 +24,28 @@
     layout = {
       gaps = 8;
 
-      focus-ring = {
-        enable = false;
-        width = 0;
-        active = {
-          color = "#00000000";
-        };
-        inactive = {
-          color = "#00000000";
-        };
-      };
-
       border = {
         enable = true;
-        width = 1;
+        width = 3;
+
         active = {
-          color = "#98971A";
+          color = "#ea6962";
         };
         inactive = {
-          color = "#444444";
+          color = "#a9b665";
         };
+
+      };
+
+      focus-ring = {
+        enable = false;
       };
 
       shadow = {
         enable = true;
         softness = 20;
         spread = 0;
+
         offset = {
           x = 0;
           y = 2;

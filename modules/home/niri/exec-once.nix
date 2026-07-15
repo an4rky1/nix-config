@@ -32,6 +32,7 @@
     }
     { argv = [ "init-wallpaper" ]; }
     { argv = [ "noctalia" ]; }
+    { argv = [ "Telegram" ]; }
 
     {
       argv = [

@@ -1,5 +1,19 @@
-{ ... }: {
+{ ... }:
+{
   programs.niri.settings.window-rules = [
+    {
+      matches = [ { app-id = ".*"; } ];
+      geometry-corner-radius = {
+        top-left = 12.0;
+        top-right = 12.0;
+        bottom-right = 12.0;
+        bottom-left = 12.0;
+      };
+      clip-to-geometry = true;
+      default-column-width = {
+        proportion = 0.45;
+      };
+    }
     {
       matches = [
         { app-id = "^(imv|mpv|zenity|waypaper|SoundWireServer|pavucontrol)$"; }
@@ -15,20 +29,32 @@
     {
       matches = [ { app-id = "^zenity$"; } ];
       open-floating = true;
-      default-column-width = { fixed = 850; };
-      default-window-height = { fixed = 500; };
+      default-column-width = {
+        fixed = 850;
+      };
+      default-window-height = {
+        fixed = 500;
+      };
     }
     {
       matches = [ { app-id = "^SoundWireServer$"; } ];
       open-floating = true;
-      default-column-width = { fixed = 725; };
-      default-window-height = { fixed = 330; };
+      default-column-width = {
+        fixed = 725;
+      };
+      default-window-height = {
+        fixed = 330;
+      };
     }
     {
       matches = [ { title = "^Volume Control$"; } ];
       open-floating = true;
-      default-column-width = { fixed = 700; };
-      default-window-height = { fixed = 450; };
+      default-column-width = {
+        fixed = 700;
+      };
+      default-window-height = {
+        fixed = 450;
+      };
     }
     {
       matches = [ { app-id = "^obsidian$"; } ];
@@ -55,7 +81,7 @@
         { app-id = "^org\\.telegram\\.desktop$"; }
         { app-id = "^(discord|WebCord|vesktop)$"; }
       ];
-      open-on-workspace = "10";
+      open-on-workspace = "9";
     }
     {
       matches = [ { app-id = "^nemo$"; } ];
@@ -64,14 +90,6 @@
     {
       matches = [ { title = "^btm$"; } ];
       open-on-workspace = "7";
-    }
-    {
-      matches = [ { title = "^superfile$"; } ];
-      open-on-workspace = "9";
-    }
-    {
-      matches = [ { title = "^Zen Browser Private Browsing$"; } ];
-      open-on-workspace = "5";
     }
   ];
 }

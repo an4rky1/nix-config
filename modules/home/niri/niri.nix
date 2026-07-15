@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  programs.niri.enable = true;
+{ pkgs, ... }:
+{
+  programs.niri = {
+    enable = true;
+
+  };
 
   home.packages = with pkgs; [
     awww

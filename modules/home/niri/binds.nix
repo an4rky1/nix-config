@@ -5,16 +5,25 @@
     "Alt+Tab".action."focus-workspace-previous" = { };
 
     "Mod+Return".action.spawn = [
-      "ghostty"
-      "--gtk-single-instance=true"
+      "kitty"
+      "--title"
+      "kitty"
+
     ];
-    "Alt+Return".action.spawn = [ "ghostty" ];
-    "Mod+Shift+Return".action.spawn = [
-      "ghostty"
-      "--fullscreen"
+    "Alt+Return".action.spawn = [
+      "run-or-focus"
+      "kitty-float"
+      "kitty --title kitty-float"
+    ];
+    "Mod+Escape".action.spawn = [
+      "kitty"
+      "--title"
+      "nvim"
+      "nvim"
     ];
     "Mod+B".action.spawn = [ "zen-beta" ];
     "Mod+D".action."spawn-sh" = "noctalia msg panel-toggle launcher";
+    "Mod+Home".action."spawn-sh" = "noctalia msg panel-toggle control-center";
     "Mod+Q".action."close-window" = { };
     "Mod+F".action."maximize-column" = { };
     "Mod+Shift+F".action."fullscreen-window" = { };
@@ -27,15 +36,15 @@
     "Mod+Shift+S".action.spawn = [ "SoundWireServer" ];
     "Mod+P".action."switch-layout" = "next";
     "Mod+X".action."toggle-column-tabbed-display" = { };
-    "Mod+Z".action."spawn-sh" = "run-or-focus 'zellij' 'ghostty --title=zellij -e zellij'";
-    "Mod+E".action."spawn-sh" = "run-or-focus 'superfile' 'ghostty --title=superfile -e superfile'";
+    "Mod+Z".action."spawn-sh" = "run-or-focus --terminal 'zellij' 'zellij'";
+    "Mod+W".action."spawn-sh" = "run-or-focus 'Telegram' 'Telegram'";
     "Mod+R".action."spawn-sh" = "run-or-focus 'nemo' 'nemo'";
-    "Mod+Ctrl+Z".action."spawn-sh" = "run-or-focus 'Zen' 'zen-beta'";
     "Mod+O".action."spawn-sh" = "run-or-focus 'Obsidian' 'obsidian'";
     "Mod+C".action.spawn = [
       "hyprpicker"
       "-a"
     ];
+
     "Ctrl+Shift+Escape".action.spawn = [ "missioncenter" ];
     "Mod+Equal".action.spawn = [ "woomer" ];
     "Mod+Ctrl+B".action."spawn-sh" = "run-or-focus 'bottom' 'ghostty --title=btm -e btm'";
@@ -52,8 +61,8 @@
     "Mod+Down".action."focus-window-down" = { };
     "Mod+H".action."focus-column-left" = { };
     "Mod+L".action."focus-column-right" = { };
-    "Mod+K".action."focus-window-up" = { };
-    "Mod+J".action."focus-window-down" = { };
+    "Mod+K".action."focus-workspace-up" = { };
+    "Mod+J".action."focus-workspace-down" = { };
 
     "Mod+Shift+Left".action."move-column-left" = { };
     "Mod+Shift+Right".action."move-column-right" = { };
@@ -61,8 +70,8 @@
     "Mod+Shift+Down".action."move-window-down" = { };
     "Mod+Shift+H".action."move-column-left" = { };
     "Mod+Shift+L".action."move-column-right" = { };
-    "Mod+Shift+K".action."move-window-up" = { };
-    "Mod+Shift+J".action."move-window-down" = { };
+    "Mod+Shift+K".action."move-window-to-workspace-up" = { };
+    "Mod+Shift+J".action."move-window-to-workspace-down" = { };
 
     "Mod+1".action."focus-workspace" = 1;
     "Mod+2".action."focus-workspace" = 2;

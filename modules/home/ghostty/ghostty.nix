@@ -5,6 +5,7 @@
     enableZshIntegration = true;
 
     settings = {
+      gtk-titlebar = false;
       ##### Font #####
       font-family = [
         "Maple Mono"
@@ -19,7 +20,7 @@
 
       ##### Theme #####
       theme = "gruvbox";
-      background-opacity = 0.5;
+      background-opacity = 1;
       adjust-cursor-thickness = 1;
 
       selection-clear-on-copy = true;
@@ -28,7 +29,7 @@
       ##### Window #####;
       window-padding-balance = true;
       window-padding-color = "extend";
-      window-decoration = "none";
+      window-decoration = "server";
       window-theme = "ghostty";
       window-inherit-working-directory = false;
 
