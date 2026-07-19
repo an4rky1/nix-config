@@ -29,6 +29,8 @@
     ./retroarch.nix
     ./../../scripts/scripts.nix # personal scripts
     ./ssh.nix # ssh config
+    ./gram
+    ./zed
     ./spicetify.nix # spotify client
     ./vscodium # vscode fork
     ./yazi # terminal file manager
