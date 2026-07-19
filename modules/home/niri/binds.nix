@@ -29,11 +29,7 @@
     "Mod+F".action."maximize-column" = { };
     "Mod+Shift+F".action."fullscreen-window" = { };
     "Mod+Space".action."toggle-window-floating" = { };
-    "Mod+Shift+D".action.spawn = [
-      "vesktop"
-      "--enable-features=UseOzonePlatform"
-      "--ozone-platform=wayland"
-    ];
+    "Mod+Shift+D".action.spawn = [ "vesktop" ];
     "Mod+Shift+S".action.spawn = [ "SoundWireServer" ];
     "Mod+P".action."switch-layout" = "next";
     "Mod+X".action."toggle-column-tabbed-display" = { };
@@ -47,6 +43,7 @@
       "hyprpicker"
       "-a"
     ];
+    "Alt+S".action."spawn-sh" = "run-or-focus 'spotify' 'spotify'";
 
     "Ctrl+Shift+Escape".action.spawn = [ "missioncenter" ];
     "Mod+Equal".action.spawn = [ "woomer" ];

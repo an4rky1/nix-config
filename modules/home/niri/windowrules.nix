@@ -130,7 +130,7 @@ in
 
     # ── Workspace 7: Spotify ──
     {
-      matches = [ { app-id = "^(Audacious|Spotify)$"; } ];
+      matches = [ { app-id = "^(Audacious|spotify)$"; } ];
       open-on-workspace = ws 7;
       default-column-width = {
         proportion = 1.0;

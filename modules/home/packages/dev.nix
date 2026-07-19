@@ -8,8 +8,8 @@
     shfmt
     treefmt
     nixfmt
-
     ## C / C++
+
     gcc
     gdb
     gef
@@ -27,7 +27,7 @@
     pnpm # пнпм
     typescript # тайпскрипт
     bun # bun
-    cargo 
+    cargo
     go
   ];
 }

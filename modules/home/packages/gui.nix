@@ -15,7 +15,7 @@
     telegram-desktop
     qbittorrent
     qutebrowser
-    steam
+    gram
 
     ## dev
     lazydocker
@@ -28,7 +28,6 @@
     ## Office
     libreoffice
     gnome-calculator
-
 
     ## Utility
     dconf-editor
